@@ -4,92 +4,336 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sunstone House — Furnished Rooms in Kenton, Portland</title>
-<meta name="description" content="Private furnished rooms for monthly stays in Portland's Kenton neighborhood. Utilities included, no deposit, ideal for working travelers and travel nurses.">
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Private furnished rooms for monthly stays in Portland's Kenton neighborhood. 11 gemstone-named rooms, utilities included, zero deposit on private contracts through RentRedi.">
+<style>
+  :root{
+    --bg:#faf2e7; --ink:#2e2620; --rust:#b05227; --rust-dark:#8f3f1d;
+    --card:#ffffff; --soft:#f3e6d4; --green-bg:#e7f2e2; --green-ink:#33512c;
+    --line:#e3d3bd;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
+  a{color:var(--rust-dark)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  header.site{padding:22px 0 6px}
+  .brand{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+  .logo{font-family:Georgia,serif;font-size:1.35rem;letter-spacing:.06em}
+  .logo small{display:block;font-size:.72rem;letter-spacing:.22em;color:#7a6a58}
+  nav.main{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  nav.main a{color:var(--ink);text-decoration:none;font-weight:600}
+  .button{display:inline-block;background:var(--rust);color:#fff !important;text-decoration:none;
+    padding:11px 20px;border-radius:999px;font-weight:700}
+  .button:hover{background:var(--rust-dark)}
+  .hero{padding:34px 0 10px}
+  .hero h1{font-size:2.5rem;margin:.2em 0 .35em}
+  .hero p{font-size:1.12rem;max-width:44em}
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px;padding:0;list-style:none}
+  .pills li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.95rem}
+  .strip{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:26px}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:16px;padding-bottom:16px}
+  .strip b{display:block;font-size:1.02rem}
+  .strip span{color:#7a6a58;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  section{padding:34px 0 6px}
+  h2{font-size:1.8rem;margin-bottom:.3em}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+  .filters button{border:1px solid var(--line);background:#fff;border-radius:999px;
+    padding:7px 15px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .filters button[aria-pressed="true"]{background:var(--rust);color:#fff;border-color:var(--rust)}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card .gem{height:64px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    font-family:Georgia,serif;font-size:1.5rem;color:#fff;margin-bottom:12px}
+  .badge{display:inline-block;background:var(--soft);border-radius:999px;padding:2px 10px;
+    font-size:.8rem;font-weight:700;margin-bottom:8px}
+  .badge.open{background:var(--green-bg);color:var(--green-ink)}
+  .card h3{margin:.1em 0 .15em;font-size:1.25rem}
+  .card .code{color:#7a6a58;font-weight:700;font-size:.85rem;letter-spacing:.08em}
+  .card .sub{color:#5d5142;margin:.1em 0 .4em}
+  .card .stars{font-size:.92rem;color:#5d5142}
+  .card .feats{font-size:.95rem;margin:.35em 0}
+  .card .price{font-weight:800;font-size:1.08rem;margin:.45em 0}
+  .card .links{display:flex;gap:14px;margin-top:8px;font-weight:700}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;list-style:none;margin:16px 0;padding:0}
+  .steps li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .steps b{display:block;margin-bottom:4px}
+  .callout{background:var(--green-bg);color:var(--green-ink);border-radius:14px;padding:18px 20px;margin:18px 0}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  ul.tight{margin:.4em 0;padding-left:1.2em}
+  footer.site{background:#fff;border-top:1px solid var(--line);margin-top:40px;padding:30px 0 36px}
+  footer .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  footer h3{margin-top:0}
+  .fineprint{color:#7a6a58;font-size:.88rem;margin-top:22px}
+  @media (max-width:820px){
+    .cards,.steps,.cols,footer .cols3{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:2rem}
+  }
+</style>
 </head>
-<body>
-<header class="site-header">
-  <div class="wrap header-inner">
-    <div class="brand">Sunstone House</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#included">What's included</a>
+<body id="top">
+
+<header class="site">
+  <div class="wrap brand">
+    <div class="logo">☀ SUNSTONE HOUSE<small>KENTON · NORTH PORTLAND</small></div>
+    <nav class="main">
       <a href="#rooms">Rooms</a>
-      <a href="#apply">Apply</a>
-      <a href="#stays">Stays</a>
+      <a href="#apply">How to apply</a>
+      <a href="#house">The house</a>
       <a href="#contact">Contact</a>
+      <a class="button" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply on RentRedi</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<div class="wrap hero">
+  <h1>Furnished monthly rooms in Kenton, Portland</h1>
+  <p>Sunstone House is an eco-conscious house in Kenton, North Portland, for working professionals — travel nurses, contract workers, interns, and people relocating. Eleven private, keyless rooms across two units, each named for a gemstone.</p>
+  <ul class="pills">
+    <li>$0 deposit on private contracts</li>
+    <li>Rooms from $1,050/mo</li>
+    <li>30-night minimum</li>
+    <li>Utilities included</li>
+  </ul>
+  <p>
+    <a class="button" href="#rooms">See the rooms</a>
+    &nbsp;<a href="#apply"><strong>How applying &amp; paying works</strong></a>
+  </p>
+</div>
+
+<div class="strip">
   <div class="wrap">
-    <h1>Furnished rooms for monthly stays in Kenton, Portland</h1>
-    <p class="lede">Private, furnished rooms in a comfortable shared house — set up for working travelers, travel nurses, and anyone relocating to Portland who wants a home base, not a hotel.</p>
-    <a class="button" href="#contact">Ask about availability</a>
+    <div><b>Fast Wi-Fi</b><span>In every room</span></div>
+    <div><b>Washer / Dryer</b><span>Free, in-unit</span></div>
+    <div><b>10 PM – 7 AM</b><span>Quiet hours</span></div>
+    <div><b>50+ amenities</b><span>Full kitchen · Parking · Patio</span></div>
+  </div>
+</div>
+
+<section id="rooms">
+  <div class="wrap">
+    <h2>The rooms</h2>
+    <p>Every room is furnished and keyless, with fast Wi-Fi and access to the full kitchen, in-unit laundry, backyard, and patio. Monthly rates include utilities. Booking 31 days or more avoids Portland/Multnomah short-term lodging taxes.</p>
+    <div class="filters">
+      <button data-filter="all" aria-pressed="true">All 11 rooms</button>
+      <button data-filter="open" aria-pressed="false">Open now</button>
+      <button data-filter="opening" aria-pressed="false">Opening soon</button>
+      <button data-filter="ask" aria-pressed="false">Ask about availability</button>
+      <button data-filter="private" aria-pressed="false">Private contract</button>
+    </div>
+    <ul class="cards">
+      <li class="card" data-cat="private">
+        <div class="gem" style="background:#e07856">Coral</div>
+        <span class="badge">Private contract until mid-January</span>
+        <div class="code">A1 · UNIT A</div>
+        <h3>Coral</h3>
+        <p class="sub">Coral Rm, XL workspace, sink/vanity</p>
+        <p class="stars">★ 5.0 (6 reviews)</p>
+        <p class="feats">Queen bed · Unit A</p>
+        <p class="price">$1,350 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a> <a href="https://airbnb.com/h/sunstonea01">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="open">
+        <div class="gem" style="background:#7f9fb8">Opal</div>
+        <span class="badge open">Open now</span>
+        <div class="code">A2 · UNIT A</div>
+        <h3>Opal</h3>
+        <p class="sub">Opal Rm — Quiet, remodeled, WiFi</p>
+        <p class="stars">★ 5.0 (3 reviews)</p>
+        <p class="feats">Queen bed · Remodeled · 160 sq ft · Floor 2</p>
+        <p class="price">$1,300 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/A2">Apply</a> <a href="https://www.airbnb.com/rooms/1171644337801975661">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="private ask">
+        <div class="gem" style="background:#5f8f7b">Larimar</div>
+        <span class="badge">Private contract — ask about availability</span>
+        <div class="code">A3 · UNIT A</div>
+        <h3>Larimar</h3>
+        <p class="sub">Larimar Rm, Desk, wifi, kitchen</p>
+        <p class="stars">★ 5.0 (9 reviews)</p>
+        <p class="feats">Private room · Desk · Unit A</p>
+        <p class="price">Private contract pricing — just ask</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a></p>
+      </li>
+      <li class="card" data-cat="booked">
+        <div class="gem" style="background:#9e3d46">Garnet</div>
+        <span class="badge">Booked until November 30</span>
+        <div class="code">A4 · UNIT A</div>
+        <h3>Garnet</h3>
+        <p class="sub">Garnet rm — transit, wifi, Kitchen</p>
+        <p class="stars">★ 4.89 (9 reviews)</p>
+        <p class="feats">Twin bed · A/C · Unit A</p>
+        <p class="price">$1,100 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a> <a href="https://www.airbnb.com/rooms/886952564101590976">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="private ask">
+        <div class="gem" style="background:#4f7d95">Apatite</div>
+        <span class="badge">Private contract — ask about availability</span>
+        <div class="code">A5 · UNIT A</div>
+        <h3>Apatite</h3>
+        <p class="sub">Apatite Rm — XL Spacious, kitchen</p>
+        <p class="stars">★ 5.0 (3 reviews)</p>
+        <p class="feats">About 220 sq ft · Remodeled · Unit A</p>
+        <p class="price">Private contract pricing — just ask</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a></p>
+      </li>
+      <li class="card" data-cat="opening">
+        <div class="gem" style="background:#3d5a99">Sapphire</div>
+        <span class="badge">Opens November 1</span>
+        <div class="code">C1 · UNIT C</div>
+        <h3>Sapphire</h3>
+        <p class="sub">Sapphire Rm — sink vanity, walkable</p>
+        <p class="stars">★ 4.89 (9 reviews)</p>
+        <p class="feats">Queen bed · Sink &amp; vanity · 220 sq ft · Floor 2</p>
+        <p class="price">$1,350 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C1">Apply</a> <a href="https://www.airbnb.com/rooms/796332063442924370">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="opening">
+        <div class="gem" style="background:#2e7d5b">Emerald</div>
+        <span class="badge">Opening Nov 2</span>
+        <div class="code">C2 · UNIT C</div>
+        <h3>Emerald</h3>
+        <p class="sub">Emerald Rm — Workspace on transit</p>
+        <p class="stars">★ 5.0 (9 reviews)</p>
+        <p class="feats">Queen bed · Workspace · 198 sq ft · Floor 2</p>
+        <p class="price">$1,300 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2">Apply</a> <a href="https://www.airbnb.com/rooms/803571153281560582">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="private ask">
+        <div class="gem" style="background:#b08a3c">Pyrite</div>
+        <span class="badge">Private contract — ask about availability</span>
+        <div class="code">C3 · UNIT C</div>
+        <h3>Pyrite</h3>
+        <p class="sub">Pyrite Rm — A/C, Quiet, Walkable</p>
+        <p class="stars">★ 5.0 (7 reviews)</p>
+        <p class="feats">Private room · A/C · Unit C</p>
+        <p class="price">Private contract pricing — just ask</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a></p>
+      </li>
+      <li class="card" data-cat="booked">
+        <div class="gem" style="background:#44548f">Lapis</div>
+        <span class="badge">Booked until late November</span>
+        <div class="code">C4 · UNIT C</div>
+        <h3>Lapis</h3>
+        <p class="sub">Lapis Rm — Wi-Fi — W/D — dining/transit</p>
+        <p class="stars">★ 4.85 (13 reviews)</p>
+        <p class="feats">Single bed · Unit C · Floor 1</p>
+        <p class="price">$1,100 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C4">Apply</a> <a href="https://www.airbnb.com/rooms/806509557115505125">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="open">
+        <div class="gem" style="background:#c26d96">Kunzite</div>
+        <span class="badge open">Open now</span>
+        <div class="code">C5 · UNIT C</div>
+        <h3>Kunzite</h3>
+        <p class="sub">Kunzite Rm — petite, kitchen, transit</p>
+        <p class="stars">★ 5.0 (12 reviews)</p>
+        <p class="feats">Twin bed · Petite room · Unit C</p>
+        <p class="price">$1,050 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a> <a href="https://airbnb.com/h/sunstonec05">Airbnb</a></p>
+      </li>
+      <li class="card" data-cat="open">
+        <div class="gem" style="background:#274b8f">Azurite</div>
+        <span class="badge open">Open now</span>
+        <div class="code">C6 · UNIT C</div>
+        <h3>Azurite</h3>
+        <p class="sub">Azurite Rm — Quiet, Fast Wi-Fi, W/D</p>
+        <p class="stars">★ 5.0 (7 reviews)</p>
+        <p class="feats">Single bed · Desk · Unit C · Floor 2</p>
+        <p class="price">$1,100 / month · utilities included</p>
+        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C6">Apply</a> <a href="https://www.airbnb.com/rooms/807167221557469880">Airbnb</a></p>
+      </li>
+    </ul>
+    <p class="fineprint">More rooms are coming soon in a third unit — names and details to follow.</p>
   </div>
 </section>
 
-<main class="wrap">
-  <section id="about">
-    <h2>About Sunstone House</h2>
-    <p>Sunstone House offers private furnished bedrooms in a shared home in Portland's Kenton neighborhood. Guests get their own room and share the kitchen and common spaces with a small number of other monthly guests — a quieter, more settled alternative to short-term rentals.</p>
-    <p>Stays are monthly, which keeps the house calm and the community stable. Most guests are in Portland for work assignments, contracts, or relocation.</p>
-  </section>
-
-  <section id="included">
-    <h2>What's included</h2>
-    <ul class="cards">
-      <li><strong>Furnished private room</strong><span>Bed, linens, and workspace-ready setup.</span></li>
-      <li><strong>Utilities &amp; Wi-Fi included</strong><span>One monthly price — no separate bills.</span></li>
-      <li><strong>Shared kitchen &amp; common areas</strong><span>Full kitchen, living spaces, and laundry access.</span></li>
-      <li><strong>No deposit</strong><span>Simple monthly terms for stays of a month or longer.</span></li>
-    </ul>
-  </section>
-
-
-  <section id="rooms">
-    <h2>Rooms</h2>
-    <p>Five rooms are listed on RentRedi — private, furnished, month-to-month, with utilities built into the rent. Stays are 31+ days.</p>
-    <ul class="cards">
-      <li><strong>Opal — $1,300/mo</strong><span>160 sq ft, 2nd floor. Furnished private room.</span></li>
-      <li><strong>Sapphire — $1,350/mo</strong><span>220 sq ft, 2nd floor, queen bed. Furnished private room.</span></li>
-      <li><strong>Emerald — $1,300/mo</strong><span>198 sq ft, 2nd floor, queen bed, A/C. Furnished private room.</span></li>
-      <li><strong>Lapis — $1,100/mo</strong><span>1st floor. Furnished private room.</span></li>
-      <li><strong>Azurite — $1,100/mo</strong><span>2nd floor. Furnished private room.</span></li>
-    </ul>
-    <p>All rooms share the kitchen and common spaces, with washer/dryer and housekeeping of common areas. More rooms are available on Airbnb — ask us what's open for your dates.</p>
-  </section>
-
-  <section id="apply">
-    <h2>Apply on RentRedi</h2>
-    <p>Applications and rent run through RentRedi. View the rooms, check details, and apply there:</p>
-    <p><a class="button" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">View rooms &amp; apply on RentRedi</a></p>
-  </section>
-
-  <section id="stays">
-    <h2>Monthly stays</h2>
-    <p>Rooms run <strong>$1,100–$1,350 per month</strong> depending on the room, with utilities included. Stays are month-to-month after an initial term, making Sunstone a good fit for:</p>
-    <ul>
-      <li>Travel nurses and medical professionals on assignment</li>
-      <li>Contractors and remote workers on longer projects</li>
-      <li>People relocating to Portland who want time to find a permanent place</li>
-    </ul>
-    <p class="note">Please note: Sunstone House is a no-pets home.</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Interested in a room? Reach out with your move-in date and how long you plan to stay, and we'll confirm what's available.</p>
-    <p>You can also find Sunstone House on Airbnb.</p>
-    <p class="note">Direct contact details will be added here soon.</p>
-  </section>
-</main>
-
-<footer>
+<section id="apply">
   <div class="wrap">
-    <p>Sunstone House · Kenton, Portland, Oregon</p>
+    <h2>How to apply &amp; pay</h2>
+    <p>Private contracts run through RentRedi — no Airbnb fees, and no deposit.</p>
+    <ol class="steps">
+      <li><b>1 · Apply on RentRedi</b>Submit the $50 application, which includes a criminal and background check.</li>
+      <li><b>2 · Screening</b>Every guest is screened on behavior. Sunstone is a quiet, working household, and current guests' comfort comes first.</li>
+      <li><b>3 · Pay first month</b>Once approved, pay the first month's rent through RentRedi by Zelle, PayPal, or bank deposit. That is all that is due up front.</li>
+      <li><b>4 · Move in</b>30-night minimum stay. Booking 31+ days avoids short-term lodging taxes entirely.</li>
+    </ol>
+    <div class="callout"><strong>Zero deposit:</strong> no security deposit on private contracts. Apply, get approved, pay the first month through RentRedi — and you're in. The other rooms are also listed on Airbnb, and their cards above link to those listings.</div>
+    <p><a class="button" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Start an application</a></p>
+  </div>
+</section>
+
+<section id="house">
+  <div class="wrap">
+    <h2>The house</h2>
+    <p>A quiet, eco-conscious home in Kenton, on the Arbor Lodge border — built for people who work, study, and need rest.</p>
+    <div class="cols">
+      <div>
+        <h3>Amenities</h3>
+        <ul class="tight">
+          <li>Fast Wi-Fi throughout</li>
+          <li>Full shared kitchen</li>
+          <li>Keyless entry, private rooms</li>
+          <li>Desk &amp; workspace in most rooms</li>
+          <li>Free in-unit washer &amp; dryer</li>
+          <li>Free off-street parking</li>
+          <li>Backyard, patio &amp; edible garden</li>
+          <li>50+ amenities, utilities included</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Getting around</h3>
+        <p>TriMet Line 35 stops about 4 blocks away and runs to South Waterfront and the Rose Quarter. About 1 mile to the University of Portland, 2 miles to Adidas, I-5 about a mile away — and seven hospitals within a 10–20 minute drive.</p>
+        <h3>House rules, in short</h3>
+        <p>Quiet hours 10 PM–7 AM. No parties, no overnight guests, no smoking, no pets. The house rules are based on respect for people sleeping down the hall.</p>
+      </div>
+    </div>
+    <h3>Why “Sunstone”?</h3>
+    <p>Sunstone is Oregon's state gem. Nathan loves gems and Shelley creates jewelry herself, so the house took the gem's name — and every room is named for a gemstone too: Opal, Sapphire, Emerald, Garnet, and the rest. Small stones, each one different, all under one roof.</p>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="cols3">
+      <div>
+        <h3>Sunstone House</h3>
+        <p>Furnished monthly rooms in Kenton, North Portland, Oregon — for working professionals, travel nurses, contract workers, interns, and relocators. Hosted by Nathan, with Shelley. Questions about a room? Just ask.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="tight">
+          <li>Email: <a href="mailto:sunventllc@gmail.com">sunventllc@gmail.com</a></li>
+          <li>Phone: <a href="tel:+15038479796">503-847-9796</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/sunstonehousepdx">@sunstonehousepdx</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Apply &amp; pay</h3>
+        <ul class="tight">
+          <li><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply on RentRedi</a></li>
+          <li><a href="#apply">How it works — zero deposit</a></li>
+          <li><a href="#rooms">Browse the rooms</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fineprint">Monthly rates shown are for private contracts through RentRedi and include utilities. Airbnb prices may differ. Availability changes as rooms book — the fastest way to check a room is to apply or email.</p>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.filters button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.filters button').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+      btn.setAttribute('aria-pressed','true');
+      var f = btn.getAttribute('data-filter');
+      document.querySelectorAll('.card').forEach(function(card){
+        var cats = (card.getAttribute('data-cat') || '').split(' ');
+        card.style.display = (f === 'all' || cats.indexOf(f) !== -1) ? '' : 'none';
+      });
+    });
+  });
+</script>
 </body>
 </html>
