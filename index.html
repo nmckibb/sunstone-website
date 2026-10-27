@@ -1,339 +1,613 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sunstone House — Furnished Rooms in Kenton, Portland</title>
-<meta name="description" content="Private furnished rooms for monthly stays in Portland's Kenton neighborhood. 11 gemstone-named rooms, utilities included, zero deposit on private contracts through RentRedi.">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<meta name="description" content="Sunstone House — furnished monthly rooms in Kenton, North Portland. Quiet working household, fast Wi-Fi, in-unit laundry, zero deposit on private contracts through RentRedi." />
+<link rel="icon" href="data:," />
+<title>Sunstone House — Furnished Monthly Rooms in North Portland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#faf2e7; --ink:#2e2620; --rust:#b05227; --rust-dark:#8f3f1d;
-    --card:#ffffff; --soft:#f3e6d4; --green-bg:#e7f2e2; --green-ink:#33512c;
-    --line:#e3d3bd;
+    color-scheme: light;
+    --bg:#faf4e7; --surface:#fffdf7; --surface2:#f4ead6;
+    --bg-grad:
+      radial-gradient(ellipse 58% 320px at 50% -50px, rgba(224,116,26,.38), rgba(224,116,26,0) 70%),
+      linear-gradient(180deg, #fce7c2 0%, #f6d6a4 24%, #f4dcb0 48%, #faf4e7 78%);
+    --ink:#2c2620; --muted:#6f6252; --line:#e6d9c3;
+    --accent:#bc5f16; --accent-ink:#ffffff; --accent-soft:#f7e3cb;
+    --green:#3f5d4a; --green-soft:#e2ead9;
+    --amber:#8a6414; --amber-soft:#f6ecd2;
+    --shadow:0 10px 30px rgba(84,58,20,.12);
+    --radius:18px;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
-  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
-  a{color:var(--rust-dark)}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-  header.site{padding:22px 0 6px}
-  .brand{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
-  .logo{font-family:Georgia,serif;font-size:1.35rem;letter-spacing:.06em}
-  .logo small{display:block;font-size:.72rem;letter-spacing:.22em;color:#7a6a58}
-  nav.main{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-  nav.main a{color:var(--ink);text-decoration:none;font-weight:600}
-  .button{display:inline-block;background:var(--rust);color:#fff !important;text-decoration:none;
-    padding:11px 20px;border-radius:999px;font-weight:700}
-  .button:hover{background:var(--rust-dark)}
-  .hero{padding:34px 0 10px}
-  .hero h1{font-size:2.5rem;margin:.2em 0 .35em}
-  .hero p{font-size:1.12rem;max-width:44em}
-  .pills{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 6px;padding:0;list-style:none}
-  .pills li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.95rem}
-  .strip{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:26px}
-  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-top:16px;padding-bottom:16px}
-  .strip b{display:block;font-size:1.02rem}
-  .strip span{color:#7a6a58;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
-  section{padding:34px 0 6px}
-  h2{font-size:1.8rem;margin-bottom:.3em}
-  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
-  .filters button{border:1px solid var(--line);background:#fff;border-radius:999px;
-    padding:7px 15px;font-weight:600;cursor:pointer;font-size:.95rem}
-  .filters button[aria-pressed="true"]{background:var(--rust);color:#fff;border-color:var(--rust)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-  .card .gem{height:64px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-    font-family:Georgia,serif;font-size:1.5rem;color:#fff;margin-bottom:12px}
-  .badge{display:inline-block;background:var(--soft);border-radius:999px;padding:2px 10px;
-    font-size:.8rem;font-weight:700;margin-bottom:8px}
-  .badge.open{background:var(--green-bg);color:var(--green-ink)}
-  .card h3{margin:.1em 0 .15em;font-size:1.25rem}
-  .card .code{color:#7a6a58;font-weight:700;font-size:.85rem;letter-spacing:.08em}
-  .card .sub{color:#5d5142;margin:.1em 0 .4em}
-  .card .stars{font-size:.92rem;color:#5d5142}
-  .card .feats{font-size:.95rem;margin:.35em 0}
-  .card .price{font-weight:800;font-size:1.08rem;margin:.45em 0}
-  .card .links{display:flex;gap:14px;margin-top:8px;font-weight:700}
-  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;list-style:none;margin:16px 0;padding:0}
-  .steps li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-  .steps b{display:block;margin-bottom:4px}
-  .callout{background:var(--green-bg);color:var(--green-ink);border-radius:14px;padding:18px 20px;margin:18px 0}
-  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  ul.tight{margin:.4em 0;padding-left:1.2em}
-  footer.site{background:#fff;border-top:1px solid var(--line);margin-top:40px;padding:30px 0 36px}
-  footer .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  footer h3{margin-top:0}
-  .fineprint{color:#7a6a58;font-size:.88rem;margin-top:22px}
-  @media (max-width:820px){
-    .cards,.steps,.cols,footer .cols3{grid-template-columns:1fr}
-    .strip .wrap{grid-template-columns:1fr 1fr}
-    .hero h1{font-size:2rem}
-  }
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg-grad);color:var(--ink);
+    font-family:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:"Marcellus",Georgia,serif;font-weight:400;letter-spacing:.01em}
+  a{color:var(--accent)}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;gap:16px;padding:10px 0}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand img{width:52px;height:52px;border-radius:12px;object-fit:cover;background:#f7efdd}
+  .brand .bname{font-family:"Marcellus",serif;font-size:1.25rem;letter-spacing:.14em;line-height:1.1}
+  .brand .bsub{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+  nav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.95rem}
+  nav a:hover{color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;
+    font-weight:800;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-small{padding:8px 16px;font-size:.88rem}
+  @media (max-width:760px){ nav a:not(.btn){display:none} .brand .bsub{display:none} }
+
+  /* Hero */
+  .hero{padding:44px 0 30px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:38px;align-items:center}
+  @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} }
+  .hero h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.12;margin:0 0 14px}
+  .hero p.lede{font-size:1.13rem;color:var(--muted);margin:0 0 22px;max-width:34em}
+  .hero-photo{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero-photo img{width:100%;height:100%;max-height:520px;object-fit:cover}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0}
+  .chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:7px 14px;font-size:.87rem;font-weight:700}
+  .chip strong{color:var(--accent)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+
+  /* Fact strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:var(--surface);margin:26px 0 0}
+  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:18px 0}
+  @media (max-width:760px){ .strip-in{grid-template-columns:repeat(2,1fr)} }
+  .fact{text-align:center;padding:6px}
+  .fact .f-big{font-family:"Marcellus",serif;font-size:1.3rem}
+  .fact .f-small{font-size:.82rem;color:var(--muted);font-weight:700;letter-spacing:.04em}
+
+  /* Sections */
+  section{padding:52px 0 8px}
+  .sec-head{max-width:44em;margin-bottom:8px}
+  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin:0 0 8px}
+  .sec-head p{color:var(--muted);margin:0}
+
+  /* Filters */
+  .filters{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 6px}
+  .filter-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer}
+  .filter-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  /* Units + room cards */
+  .unit-head{display:flex;align-items:baseline;gap:14px;margin:34px 0 16px}
+  .unit-head h3{font-size:1.45rem;margin:0}
+  .unit-head span{color:var(--muted);font-size:.92rem;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media (max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:620px){ .grid{grid-template-columns:1fr} }
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(84,58,20,.05)}
+  .card-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--surface2)}
+  .card-photo img{width:100%;height:100%;object-fit:cover}
+  .badge{position:absolute;top:12px;left:12px;border-radius:999px;padding:5px 12px;
+    font-size:.76rem;font-weight:800;letter-spacing:.03em;background:var(--surface);color:var(--ink);
+    box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  .badge.open{background:var(--green-soft);color:var(--green)}
+  .badge.soon{background:var(--amber-soft);color:var(--amber)}
+  .badge.private{background:var(--surface2);color:var(--muted)}
+  .code{position:absolute;top:12px;right:12px;border-radius:8px;padding:4px 9px;font-size:.76rem;
+    font-weight:800;background:rgba(24,18,10,.72);color:#fdf6e9;letter-spacing:.06em}
+  .photo-note{position:absolute;bottom:0;left:0;right:0;padding:14px 12px 7px;font-size:.74rem;
+    font-weight:700;color:#fdf6e9;background:linear-gradient(transparent,rgba(24,18,10,.66))}
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .card-body h4{font-family:"Marcellus",serif;font-size:1.35rem;margin:0}
+  .card-title{font-size:.9rem;color:var(--muted);font-weight:600;line-height:1.4}
+  .rating{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;font-weight:800}
+  .rating .star{color:var(--accent);font-size:1rem}
+  .rating .rcount{color:var(--muted);font-weight:700}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.9rem;font-weight:700;color:var(--muted)}
+  .price-row{margin-top:auto;padding-top:10px;display:flex;align-items:baseline;gap:6px}
+  .price{font-family:"Marcellus",serif;font-size:1.5rem}
+  .price-per{color:var(--muted);font-weight:700;font-size:.88rem}
+  .price-private{font-weight:800;color:var(--muted);font-size:.98rem}
+  .card-actions{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+  .card-actions .btn{flex:1;justify-content:center}
+  .hidden{display:none !important}
+
+  .coming{margin:30px 0 4px;border:1px dashed var(--line);border-radius:var(--radius);
+    padding:18px 22px;text-align:center;color:var(--muted);font-weight:700;background:var(--surface)}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+  @media (max-width:980px){ .steps{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr} }
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .step .num{width:38px;height:38px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-family:"Marcellus",serif;font-size:1.15rem;margin-bottom:12px}
+  .step h4{margin:0 0 6px;font-size:1.05rem}
+  .step p{margin:0;color:var(--muted);font-size:.94rem}
+  .zero{margin-top:20px;background:var(--green-soft);border-radius:var(--radius);padding:22px 26px;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .zero .z-big{font-family:"Marcellus",serif;font-size:1.6rem;color:var(--green)}
+  .zero p{margin:0;max-width:46em}
+
+  /* House */
+  .house-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px;align-items:start}
+  @media (max-width:880px){ .house-grid{grid-template-columns:1fr} }
+  .amen{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+  @media (max-width:480px){ .amen{grid-template-columns:1fr} }
+  .amen li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+  .amen .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:8px}
+  .house-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .house-photos img{border-radius:14px;width:100%;height:190px;object-fit:cover}
+  .house-photos img.wide{grid-column:1/-1;height:230px}
+  .rules{margin-top:22px;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px 24px}
+  .rules h4{margin:0 0 8px;font-family:"Marcellus",serif;font-size:1.15rem}
+  .rules p{margin:0;color:var(--muted)}
+
+  /* Story */
+  .story{background:var(--surface);border:1px solid var(--line);border-radius:24px;
+    padding:34px;margin-top:24px;display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:center}
+  @media (max-width:620px){ .story{grid-template-columns:1fr;text-align:center;justify-items:center} }
+  .story img{width:120px;height:120px;border-radius:16px;object-fit:cover;background:#f7efdd}
+  .story h3{margin:0 0 8px;font-size:1.5rem}
+  .story p{margin:0;color:var(--muted);max-width:52em}
+
+  /* Footer */
+  footer{margin-top:60px;border-top:1px solid var(--line);background:var(--surface)}
+  .foot-in{padding:38px 0 30px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+  @media (max-width:760px){ .foot-in{grid-template-columns:1fr} }
+  footer h4{font-family:"Marcellus",serif;margin:0 0 10px;font-size:1.1rem;letter-spacing:.06em}
+  footer p, footer a{font-size:.95rem}
+  footer p{color:var(--muted);margin:0 0 6px}
+  .foot-links{display:flex;flex-direction:column;gap:8px}
+  .foot-links a{color:var(--ink);text-decoration:none;font-weight:700}
+  .foot-links a:hover{color:var(--accent)}
+  .fineprint{border-top:1px solid var(--line);padding:16px 0 26px;color:var(--muted);font-size:.84rem}
+
+  /* Modal */
+  .modal-back{position:fixed;inset:0;background:rgba(20,14,6,.6);z-index:60;display:none;
+    align-items:flex-end;justify-content:center;padding:0}
+  .modal-back.open{display:flex}
+  .modal{background:var(--bg);width:100%;max-width:680px;max-height:92vh;overflow:auto;
+    border-radius:22px 22px 0 0;padding:0 0 28px;animation:rise .22s ease}
+  @media (min-width:700px){ .modal-back{align-items:center;padding:24px} .modal{border-radius:22px} }
+  @keyframes rise{from{transform:translateY(16px);opacity:.4}to{transform:none;opacity:1}}
+  @media (prefers-reduced-motion: reduce){ .modal{animation:none} html{scroll-behavior:auto} }
+  .modal-photo{position:relative}
+  .modal-photo img.main{width:100%;height:300px;object-fit:cover}
+  .modal-photo img.second{width:100%;height:190px;object-fit:cover;margin-top:4px}
+  .modal-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;
+    border:none;background:rgba(24,18,10,.72);color:#fdf6e9;font-size:1.2rem;cursor:pointer;line-height:1}
+  .modal-body{padding:22px 26px 0}
+  .modal-body h3{font-size:1.7rem;margin:0 0 2px}
+  .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .modal-actions .btn{flex:1;justify-content:center;min-width:150px}
 </style>
 </head>
-<body id="top">
+<body>
 
-<header class="site">
-  <div class="wrap brand">
-    <div class="logo">☀ SUNSTONE HOUSE<small>KENTON · NORTH PORTLAND</small></div>
-    <nav class="main">
+<header>
+  <div class="wrap header-in">
+    <a class="brand" href="#top">
+      <img src="assets/logo.png" alt="Sunstone House logo — a house with a rising sun" />
+      <span>
+        <span class="bname">SUNSTONE HOUSE</span><br />
+        <span class="bsub">Kenton · North Portland</span>
+      </span>
+    </a>
+    <nav>
       <a href="#rooms">Rooms</a>
       <a href="#apply">How to apply</a>
       <a href="#house">The house</a>
       <a href="#contact">Contact</a>
-      <a class="button" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply on RentRedi</a>
+      <a class="btn btn-accent btn-small" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Apply on RentRedi</a>
     </nav>
   </div>
 </header>
 
-<div class="wrap hero">
-  <h1>Furnished monthly rooms in Kenton, Portland</h1>
-  <p>Sunstone House is an eco-conscious house in Kenton, North Portland, for working professionals — travel nurses, contract workers, interns, and people relocating. Eleven private, keyless rooms across two units, each named for a gemstone.</p>
-  <ul class="pills">
-    <li>$0 deposit on private contracts</li>
-    <li>Rooms from $1,050/mo</li>
-    <li>30-night minimum</li>
-    <li>Utilities included</li>
-  </ul>
-  <p>
-    <a class="button" href="#rooms">See the rooms</a>
-    &nbsp;<a href="#apply"><strong>How applying &amp; paying works</strong></a>
-  </p>
-</div>
-
-<div class="strip">
-  <div class="wrap">
-    <div><b>Fast Wi-Fi</b><span>In every room</span></div>
-    <div><b>Washer / Dryer</b><span>Free, in-unit</span></div>
-    <div><b>10 PM – 7 AM</b><span>Quiet hours</span></div>
-    <div><b>50+ amenities</b><span>Full kitchen · Parking · Patio</span></div>
-  </div>
-</div>
-
-<section id="rooms">
-  <div class="wrap">
-    <h2>The rooms</h2>
-    <p>Every room is furnished and keyless, with fast Wi-Fi and access to the full kitchen, in-unit laundry, backyard, and patio. Monthly rates include utilities. Booking 31 days or more avoids Portland/Multnomah short-term lodging taxes.</p>
-    <div class="filters">
-      <button data-filter="all" aria-pressed="true">All 11 rooms</button>
-      <button data-filter="open" aria-pressed="false">Open now</button>
-      <button data-filter="opening" aria-pressed="false">Opening soon</button>
-      <button data-filter="ask" aria-pressed="false">Ask about availability</button>
-      <button data-filter="private" aria-pressed="false">Private contract</button>
-    </div>
-    <ul class="cards">
-      <li class="card" data-cat="private">
-        <div class="gem" style="background:#e07856">Coral</div>
-        <span class="badge">Private contract until mid-January</span>
-        <div class="code">A1 · UNIT A</div>
-        <h3>Coral</h3>
-        <p class="sub">Coral Rm, XL workspace, sink/vanity</p>
-        <p class="stars">★ 5.0 (6 reviews)</p>
-        <p class="feats">Queen bed · Unit A</p>
-        <p class="price">$1,350 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a> <a href="https://airbnb.com/h/sunstonea01">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="open">
-        <div class="gem" style="background:#7f9fb8">Opal</div>
-        <span class="badge open">Open now</span>
-        <div class="code">A2 · UNIT A</div>
-        <h3>Opal</h3>
-        <p class="sub">Opal Rm — Quiet, remodeled, WiFi</p>
-        <p class="stars">★ 5.0 (3 reviews)</p>
-        <p class="feats">Queen bed · Remodeled · 160 sq ft · Floor 2</p>
-        <p class="price">$1,300 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/A2">Apply</a> <a href="https://www.airbnb.com/rooms/1171644337801975661">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="private ask">
-        <div class="gem" style="background:#5f8f7b">Larimar</div>
-        <span class="badge">Private contract — ask about availability</span>
-        <div class="code">A3 · UNIT A</div>
-        <h3>Larimar</h3>
-        <p class="sub">Larimar Rm, Desk, wifi, kitchen</p>
-        <p class="stars">★ 5.0 (9 reviews)</p>
-        <p class="feats">Private room · Desk · Unit A</p>
-        <p class="price">Private contract pricing — just ask</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a></p>
-      </li>
-      <li class="card" data-cat="booked">
-        <div class="gem" style="background:#9e3d46">Garnet</div>
-        <span class="badge">Booked until November 30</span>
-        <div class="code">A4 · UNIT A</div>
-        <h3>Garnet</h3>
-        <p class="sub">Garnet rm — transit, wifi, Kitchen</p>
-        <p class="stars">★ 4.89 (9 reviews)</p>
-        <p class="feats">Twin bed · A/C · Unit A</p>
-        <p class="price">$1,100 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a> <a href="https://www.airbnb.com/rooms/886952564101590976">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="private ask">
-        <div class="gem" style="background:#4f7d95">Apatite</div>
-        <span class="badge">Private contract — ask about availability</span>
-        <div class="code">A5 · UNIT A</div>
-        <h3>Apatite</h3>
-        <p class="sub">Apatite Rm — XL Spacious, kitchen</p>
-        <p class="stars">★ 5.0 (3 reviews)</p>
-        <p class="feats">About 220 sq ft · Remodeled · Unit A</p>
-        <p class="price">Private contract pricing — just ask</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a></p>
-      </li>
-      <li class="card" data-cat="opening">
-        <div class="gem" style="background:#3d5a99">Sapphire</div>
-        <span class="badge">Opens November 1</span>
-        <div class="code">C1 · UNIT C</div>
-        <h3>Sapphire</h3>
-        <p class="sub">Sapphire Rm — sink vanity, walkable</p>
-        <p class="stars">★ 4.89 (9 reviews)</p>
-        <p class="feats">Queen bed · Sink &amp; vanity · 220 sq ft · Floor 2</p>
-        <p class="price">$1,350 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C1">Apply</a> <a href="https://www.airbnb.com/rooms/796332063442924370">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="opening">
-        <div class="gem" style="background:#2e7d5b">Emerald</div>
-        <span class="badge">Opening Nov 2</span>
-        <div class="code">C2 · UNIT C</div>
-        <h3>Emerald</h3>
-        <p class="sub">Emerald Rm — Workspace on transit</p>
-        <p class="stars">★ 5.0 (9 reviews)</p>
-        <p class="feats">Queen bed · Workspace · 198 sq ft · Floor 2</p>
-        <p class="price">$1,300 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2">Apply</a> <a href="https://www.airbnb.com/rooms/803571153281560582">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="private ask">
-        <div class="gem" style="background:#b08a3c">Pyrite</div>
-        <span class="badge">Private contract — ask about availability</span>
-        <div class="code">C3 · UNIT C</div>
-        <h3>Pyrite</h3>
-        <p class="sub">Pyrite Rm — A/C, Quiet, Walkable</p>
-        <p class="stars">★ 5.0 (7 reviews)</p>
-        <p class="feats">Private room · A/C · Unit C</p>
-        <p class="price">Private contract pricing — just ask</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a></p>
-      </li>
-      <li class="card" data-cat="booked">
-        <div class="gem" style="background:#44548f">Lapis</div>
-        <span class="badge">Booked until late November</span>
-        <div class="code">C4 · UNIT C</div>
-        <h3>Lapis</h3>
-        <p class="sub">Lapis Rm — Wi-Fi — W/D — dining/transit</p>
-        <p class="stars">★ 4.85 (13 reviews)</p>
-        <p class="feats">Single bed · Unit C · Floor 1</p>
-        <p class="price">$1,100 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C4">Apply</a> <a href="https://www.airbnb.com/rooms/806509557115505125">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="open">
-        <div class="gem" style="background:#c26d96">Kunzite</div>
-        <span class="badge open">Open now</span>
-        <div class="code">C5 · UNIT C</div>
-        <h3>Kunzite</h3>
-        <p class="sub">Kunzite Rm — petite, kitchen, transit</p>
-        <p class="stars">★ 5.0 (12 reviews)</p>
-        <p class="feats">Twin bed · Petite room · Unit C</p>
-        <p class="price">$1,050 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply</a> <a href="https://airbnb.com/h/sunstonec05">Airbnb</a></p>
-      </li>
-      <li class="card" data-cat="open">
-        <div class="gem" style="background:#274b8f">Azurite</div>
-        <span class="badge open">Open now</span>
-        <div class="code">C6 · UNIT C</div>
-        <h3>Azurite</h3>
-        <p class="sub">Azurite Rm — Quiet, Fast Wi-Fi, W/D</p>
-        <p class="stars">★ 5.0 (7 reviews)</p>
-        <p class="feats">Single bed · Desk · Unit C · Floor 2</p>
-        <p class="price">$1,100 / month · utilities included</p>
-        <p class="links"><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C6">Apply</a> <a href="https://www.airbnb.com/rooms/807167221557469880">Airbnb</a></p>
-      </li>
-    </ul>
-    <p class="fineprint">More rooms are coming soon in a third unit — names and details to follow.</p>
-  </div>
-</section>
-
-<section id="apply">
-  <div class="wrap">
-    <h2>How to apply &amp; pay</h2>
-    <p>Private contracts run through RentRedi — no Airbnb fees, and no deposit.</p>
-    <ol class="steps">
-      <li><b>1 · Apply on RentRedi</b>Submit the $50 application, which includes a criminal and background check.</li>
-      <li><b>2 · Screening</b>Every guest is screened on behavior. Sunstone is a quiet, working household, and current guests' comfort comes first.</li>
-      <li><b>3 · Pay first month</b>Once approved, pay the first month's rent through RentRedi by Zelle, PayPal, or bank deposit. That is all that is due up front.</li>
-      <li><b>4 · Move in</b>30-night minimum stay. Booking 31+ days avoids short-term lodging taxes entirely.</li>
-    </ol>
-    <div class="callout"><strong>Zero deposit:</strong> no security deposit on private contracts. Apply, get approved, pay the first month through RentRedi — and you're in. The other rooms are also listed on Airbnb, and their cards above link to those listings.</div>
-    <p><a class="button" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Start an application</a></p>
-  </div>
-</section>
-
-<section id="house">
-  <div class="wrap">
-    <h2>The house</h2>
-    <p>A quiet, eco-conscious home in Kenton, on the Arbor Lodge border — built for people who work, study, and need rest.</p>
-    <div class="cols">
+<main id="top">
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="hero-grid">
       <div>
-        <h3>Amenities</h3>
-        <ul class="tight">
-          <li>Fast Wi-Fi throughout</li>
-          <li>Full shared kitchen</li>
-          <li>Keyless entry, private rooms</li>
-          <li>Desk &amp; workspace in most rooms</li>
-          <li>Free in-unit washer &amp; dryer</li>
-          <li>Free off-street parking</li>
-          <li>Backyard, patio &amp; edible garden</li>
-          <li>50+ amenities, utilities included</li>
-        </ul>
+        <h1>Furnished monthly rooms in a quiet Portland house</h1>
+        <p class="lede">Sunstone House is an eco-conscious haven in Kenton, North Portland, made for working professionals — travel nurses, contract workers, interns, and people relocating. Eleven private, keyless rooms across two units, every one named for a gemstone.</p>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="#rooms">See the rooms</a>
+          <a class="btn btn-ghost" href="#apply">How applying &amp; paying works</a>
+        </div>
+        <div class="chips">
+          <span class="chip"><strong>$0 deposit</strong> on private contracts</span>
+          <span class="chip">Rooms from <strong>$1,050/mo</strong></span>
+          <span class="chip"><strong>30-night</strong> minimum</span>
+          <span class="chip">Utilities included</span>
+        </div>
       </div>
-      <div>
-        <h3>Getting around</h3>
-        <p>TriMet Line 35 stops about 4 blocks away and runs to South Waterfront and the Rose Quarter. About 1 mile to the University of Portland, 2 miles to Adidas, I-5 about a mile away — and seven hospitals within a 10–20 minute drive.</p>
-        <h3>House rules, in short</h3>
-        <p>Quiet hours 10 PM–7 AM. No parties, no overnight guests, no smoking, no pets. The house rules are based on respect for people sleeping down the hall.</p>
+      <div class="hero-photo">
+        <img src="assets/apatite.jpg" alt="The Apatite room at Sunstone House — a bright queen room with teal bedding and a desk by the window" />
       </div>
     </div>
-    <h3>Why “Sunstone”?</h3>
-    <p>Sunstone is Oregon's state gem. Nathan loves gems and Shelley creates jewelry herself, so the house took the gem's name — and every room is named for a gemstone too: Opal, Sapphire, Emerald, Garnet, and the rest. Small stones, each one different, all under one roof.</p>
   </div>
-</section>
 
-<footer class="site" id="contact">
-  <div class="wrap">
-    <div class="cols3">
-      <div>
-        <h3>Sunstone House</h3>
-        <p>Furnished monthly rooms in Kenton, North Portland, Oregon — for working professionals, travel nurses, contract workers, interns, and relocators. Hosted by Nathan, with Shelley. Questions about a room? Just ask.</p>
+  <div class="strip">
+    <div class="wrap strip-in">
+      <div class="fact"><div class="f-big">Fast Wi-Fi</div><div class="f-small">IN EVERY ROOM</div></div>
+      <div class="fact"><div class="f-big">Washer / Dryer</div><div class="f-small">FREE, IN-UNIT</div></div>
+      <div class="fact"><div class="f-big">10 PM – 7 AM</div><div class="f-small">QUIET HOURS</div></div>
+      <div class="fact"><div class="f-big">50+ amenities</div><div class="f-small">FULL KITCHEN · PARKING · PATIO</div></div>
+    </div>
+  </div>
+
+  <!-- ROOMS -->
+  <section id="rooms">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The rooms</h2>
+        <p>Every room is furnished and keyless, with fast Wi-Fi and access to the full kitchen, in-unit laundry, backyard, and patio. Monthly rates include utilities. Book 31 days or more and the Portland / Multnomah short-term lodging taxes don't apply.</p>
       </div>
-      <div>
-        <h3>Contact</h3>
-        <ul class="tight">
-          <li>Email: <a href="mailto:sunventllc@gmail.com">sunventllc@gmail.com</a></li>
-          <li>Phone: <a href="tel:+15038479796">503-847-9796</a></li>
-          <li>Instagram: <a href="https://www.instagram.com/sunstonehousepdx">@sunstonehousepdx</a></li>
-        </ul>
+      <div class="filters" role="group" aria-label="Filter rooms by availability">
+        <button class="filter-btn" data-filter="all" aria-pressed="true">All 11 rooms</button>
+        <button class="filter-btn" data-filter="open" aria-pressed="false">Open now</button>
+        <button class="filter-btn" data-filter="soon" aria-pressed="false">Opening Nov 2</button>
+        <button class="filter-btn" data-filter="ask" aria-pressed="false">Ask about availability</button>
+        <button class="filter-btn" data-filter="private" aria-pressed="false">Private contract</button>
       </div>
-      <div>
-        <h3>Apply &amp; pay</h3>
-        <ul class="tight">
-          <li><a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2">Apply on RentRedi</a></li>
-          <li><a href="#apply">How it works — zero deposit</a></li>
-          <li><a href="#rooms">Browse the rooms</a></li>
-        </ul>
+      <div id="room-units"></div>
+      <div class="coming">More rooms coming soon in a third unit — names and details to follow.</div>
+    </div>
+  </section>
+
+  <!-- APPLY / PAY -->
+  <section id="apply">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How to apply &amp; pay</h2>
+        <p>Private contracts run through RentRedi — no Airbnb fees, and no deposit. Here's the whole process:</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h4>Apply on RentRedi</h4><p>Submit the $50 application, which includes a criminal and background check.</p></div>
+        <div class="step"><div class="num">2</div><h4>Screening</h4><p>Every guest is screened on behavior — Sunstone is a quiet, working household, and current guests' comfort comes first.</p></div>
+        <div class="step"><div class="num">3</div><h4>Pay first month</h4><p>Once approved, pay your first month's rent through RentRedi — Zelle, PayPal, or bank deposit. That's all that's due up front.</p></div>
+        <div class="step"><div class="num">4</div><h4>Move in</h4><p>30-night minimum stay. Book 31+ days to skip the short-term lodging taxes entirely.</p></div>
+      </div>
+      <div class="zero">
+        <div class="z-big">Zero deposit</div>
+        <p>No security deposit on private contracts — apply, get approved, pay first month's rent through RentRedi, and you're in. Rent is paid through the normal RentRedi channels: <strong>Zelle</strong>, <strong>PayPal</strong>, or <strong>bank deposit</strong>. Prefer Airbnb? The other eight rooms are listed there too, and their cards link to their listings.</p>
+        <a class="btn btn-accent" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Start an application</a>
       </div>
     </div>
-    <p class="fineprint">Monthly rates shown are for private contracts through RentRedi and include utilities. Airbnb prices may differ. Availability changes as rooms book — the fastest way to check a room is to apply or email.</p>
+  </section>
+
+  <!-- THE HOUSE -->
+  <section id="house">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The house</h2>
+        <p>A quiet, eco-conscious home in Kenton, on the Arbor Lodge border — built for people who work, study, and need real rest.</p>
+      </div>
+      <div class="house-grid">
+        <div>
+          <ul class="amen">
+            <li><span class="dot"></span>Fast Wi-Fi throughout</li>
+            <li><span class="dot"></span>Free in-unit washer &amp; dryer</li>
+            <li><span class="dot"></span>Full shared kitchen</li>
+            <li><span class="dot"></span>Free off-street parking</li>
+            <li><span class="dot"></span>Keyless entry, private rooms</li>
+            <li><span class="dot"></span>Backyard, patio &amp; edible garden</li>
+            <li><span class="dot"></span>Desk &amp; workspace in most rooms</li>
+            <li><span class="dot"></span>50+ amenities, utilities included</li>
+          </ul>
+          <div class="rules">
+            <h4>Getting around</h4>
+            <p>TriMet Line 35 stops about 4 blocks away and runs straight to South Waterfront and the Rose Quarter. About 1 mile to the University of Portland, 2 miles to Adidas, I-5 about a mile away, and seven hospitals within a 10–20 minute drive.</p>
+          </div>
+          <div class="rules">
+            <h4>House rules, in short</h4>
+            <p>Quiet hours 10 PM–7 AM. No parties, no overnight guests, no smoking. Every rule in the house book is there because the house runs on respect for the people sleeping down the hall.</p>
+          </div>
+        </div>
+        <div class="house-photos">
+          <img class="wide" src="assets/kitchen.jpg" alt="The shared kitchen at Sunstone House" />
+          <img src="assets/laundry.jpg" alt="In-unit washer and dryer at Sunstone House" />
+          <img src="assets/exterior.jpg" alt="Outside Sunstone House in North Portland" />
+        </div>
+      </div>
+
+      <div class="story">
+        <img src="assets/logo.png" alt="Sunstone House logo" />
+        <div>
+          <h3>Why “Sunstone”?</h3>
+          <p>The sunstone is Oregon's state gem. Nathan loves gems, and Shelley creates jewelry herself — so the house took the gem's name, and every room in it is named for a gemstone too: Opal, Sapphire, Emerald, Garnet, and the rest. Small stones, each one different, all under one roof.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <h4>SUNSTONE HOUSE</h4>
+        <p>Furnished monthly rooms in Kenton, North Portland, Oregon. For working professionals, travel nurses, contract workers, interns, and relocators.</p>
+        <p>Hosted by Nathan, with Shelley — ask us anything about the rooms.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="foot-links">
+          <a href="mailto:Sunventllc@gmail.com">Sunventllc@gmail.com</a>
+          <a href="tel:+15038479796">503-847-9796</a>
+          <a href="https://www.instagram.com/sunstonehousepdx" target="_blank" rel="noopener">Instagram · @sunstonehousepdx</a>
+        </div>
+      </div>
+      <div>
+        <h4>Apply &amp; pay</h4>
+        <div class="foot-links">
+          <a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Apply on RentRedi</a>
+          <a href="#apply">How it works — zero deposit</a>
+          <a href="#rooms">Browse the rooms</a>
+        </div>
+      </div>
+    </div>
+    <div class="fineprint">Monthly rates shown are for private contracts through RentRedi and include utilities. Airbnb prices may differ. Availability changes as rooms book — the fastest way to check a room is to apply or email us.</div>
   </div>
 </footer>
 
+<!-- ROOM DETAIL MODAL -->
+<div class="modal-back" id="modal-back" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal">
+    <div class="modal-photo">
+      <img class="main" id="m-img" src="assets/hero.jpg" alt="" />
+      <button class="modal-close" id="m-close" aria-label="Close room details">×</button>
+    </div>
+    <img class="second" id="m-img2" src="assets/hero.jpg" alt="" style="width:100%;object-fit:cover" hidden />
+    <div class="modal-body">
+      <h3 id="m-name"></h3>
+      <div class="card-title" id="m-title"></div>
+      <div id="m-rating" style="margin-top:8px"></div>
+      <div class="meta" id="m-meta" style="margin-top:10px"></div>
+      <p id="m-desc" style="color:var(--muted);margin:12px 0 0"></p>
+      <div class="price-row" id="m-price"></div>
+      <div class="modal-actions" id="m-actions"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-  document.querySelectorAll('.filters button').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      document.querySelectorAll('.filters button').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
-      btn.setAttribute('aria-pressed','true');
-      var f = btn.getAttribute('data-filter');
-      document.querySelectorAll('.card').forEach(function(card){
-        var cats = (card.getAttribute('data-cat') || '').split(' ');
-        card.style.display = (f === 'all' || cats.indexOf(f) !== -1) ? '' : 'none';
-      });
+var RENTREDI = "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2";
+
+var UNITS = [
+  { id:"A", name:"Unit A", note:"Five rooms" },
+  { id:"C", name:"Unit C", note:"Six rooms" }
+];
+
+var ROOMS = [
+  { code:"A1", name:"Coral", unit:"A",
+    title:"Sunstone House-Coral Rm, XL workspace, sink/vanity",
+    bed:"Queen bed", price:1350, status:"private", statusLabel:"Private contract until mid-January",
+    img:"assets/coral.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:6 },
+    desc:"A generous queen room with an XL workspace and its own sink and vanity — room to work, room to unwind. One of the house's deliberately screen-free rooms, kept quiet for real rest.",
+    airbnb:"https://airbnb.com/h/sunstonea01" },
+  { code:"A2", name:"Opal", unit:"A",
+    title:"Sunstone House Opal Rm-Quiet, remodeled, WiFi",
+    bed:"Queen bed · Remodeled", price:1300, status:"open", statusLabel:"Open now",
+    img:"assets/opal.jpg", img2:"assets/opal-2.jpg", housePhoto:false,
+    rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/A2", sqft:160, floor:2,
+    rating:{ stars:"5.0", count:3 },
+    desc:"The freshly remodeled queen room — calm colors, a proper bedside setup, and soft light all day. A guest favorite for long stays, and deliberately screen-free.",
+    airbnb:"https://www.airbnb.com/rooms/1171644337801975661" },
+  { code:"A3", name:"Larimar", unit:"A",
+    title:"Sunstone House-Larimar Rm, Desk, wifi, kitchen",
+    bed:"Private room · Desk", price:null, status:"private", statusLabel:"Private contract — ask about availability",
+    img:"assets/larimar.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:9 },
+    desc:"Larimar is held on a private contract and isn't bookable on Airbnb. It has a desk and fast Wi-Fi, with the full kitchen steps away. If you're looking for a monthly private arrangement, ask us about it.",
+    airbnb:null },
+  { code:"A4", name:"Garnet", unit:"A",
+    title:"Sunstone House-Garnet rm- transit, wifi, Kitchen",
+    bed:"Twin bed · A/C", price:1100, status:"booked", statusLabel:"Booked until November 30",
+    img:"assets/garnet.jpg", img2:"assets/garnet-2.jpg", housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"4.89", count:9 },
+    desc:"A bright twin room with A/C, a long desk under the windows, and a full storage wall. Big windows, blackout curtains, and the bus line a short walk away.",
+    airbnb:"https://www.airbnb.com/rooms/886952564101590976" },
+  { code:"A5", name:"Apatite", unit:"A",
+    title:"Sunstone House-Apatite Rm-XL Spacious, kitchen",
+    bed:"~220 sq ft · Remodeled", price:null, status:"private", statusLabel:"Private contract — ask about availability",
+    img:"assets/apatite.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:3 },
+    desc:"At roughly 220 square feet, Apatite is one of the biggest rooms in the house — remodeled and spacious, with the kitchen close by. It's held on a private contract and isn't bookable on Airbnb; ask us about availability.",
+    airbnb:null },
+  { code:"C1", name:"Sapphire", unit:"C",
+    title:"Sunstone House - Sapphire Rm-sink vanity, walkable",
+    bed:"Queen bed · Sink & vanity", price:1350, status:"soon", statusLabel:"Opens November 1",
+    img:"assets/sapphire.jpg", img2:"assets/sapphire-2.jpg", housePhoto:false,
+    rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C1", sqft:220, floor:2,
+    rating:{ stars:"4.89", count:9 },
+    desc:"The XL queen room — walk-in closet, its own sink and vanity, and a desk by the window. In a walkable pocket of Kenton, with the patio and backyard right outside.",
+    airbnb:"https://www.airbnb.com/rooms/796332063442924370" },
+  { code:"C2", name:"Emerald", unit:"C",
+    title:"Sunstone House-Emerald Rm-Workspace on transit",
+    bed:"Queen bed · Workspace", price:1300, status:"soon", statusLabel:"Opening Nov 2",
+    img:"assets/emerald.jpg", img2:"assets/emerald-2.jpg", housePhoto:false,
+    rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2", sqft:198, floor:2,
+    rating:{ stars:"5.0", count:9 },
+    desc:"A serene queen room with a dedicated workspace, built-in bedside shelves, and A/C — right on the transit line. Emerald's long-stay guests have given it a spotless 5.0 across nine reviews.",
+    airbnb:"https://www.airbnb.com/rooms/803571153281560582" },
+  { code:"C3", name:"Pyrite", unit:"C",
+    title:"Sunstone House-Pyrite Rm-A/C, Quiet, Walkable,",
+    bed:"Private room · A/C", price:null, status:"private", statusLabel:"Private contract — ask about availability",
+    img:"assets/pyrite.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:7 },
+    desc:"Pyrite is a quiet room with A/C in a walkable part of the neighborhood, held on a private contract and not bookable on Airbnb. Ask us if you're looking for a monthly private arrangement.",
+    airbnb:null },
+  { code:"C4", name:"Lapis", unit:"C",
+    title:"Sunstone House-Lapis Rm-Wi-Fi-W/D-dining/transit",
+    bed:"Single bed", price:1100, status:"booked", statusLabel:"Booked until late November",
+    img:"assets/lapis.jpg", img2:null, housePhoto:false,
+    rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C4", floor:1,
+    rating:{ stars:"4.85", count:13 },
+    desc:"A cozy single room with a tall dresser and gem-toned art, close to the dining room. Wi-Fi, washer/dryer, and the transit line all right there — a proven landing spot, with thirteen guest reviews.",
+    airbnb:"https://www.airbnb.com/rooms/806509557115505125" },
+  { code:"C5", name:"Kunzite", unit:"C",
+    title:"Sunstone House-Kunzite Rm-petite, kitchen, transit",
+    bed:"Twin bed · Petite room", price:1050, status:"open", statusLabel:"Open now",
+    img:"assets/kunzite.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:12 },
+    desc:"A petite twin room near the dining room and the kitchen — small, quiet, and the most affordable room in the house. Ideal for one person on a monthly stay near transit.",
+    airbnb:"https://airbnb.com/h/sunstonec05" },
+  { code:"C6", name:"Azurite", unit:"C",
+    title:"Sunstone House Azurite Rm-Quiet, Fast Wi-Fi, W/D",
+    bed:"Single bed · Desk", price:1100, status:"open", statusLabel:"Open now",
+    img:"assets/azurite.jpg", img2:"assets/azurite-2.jpg", housePhoto:false,
+    rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C6", floor:2,
+    rating:{ stars:"5.0", count:7 },
+    desc:"A quiet single room with a desk under big windows, fast Wi-Fi, and plenty of storage. A work-ready setup steps from the laundry — rated 5.0 by seven guests.",
+    airbnb:"https://www.airbnb.com/rooms/807167221557469880" }
+];
+
+function money(n){ return "$" + n.toLocaleString("en-US"); }
+function badgeClass(s){ return s==="open" ? "badge open" : (s==="soon" || s==="booked") ? "badge soon" : s==="private" ? "badge private" : "badge"; }
+function ratingHTML(r){
+  if(!r) return "";
+  return '<span class="rating"><span class="star" aria-hidden="true">★</span>' + r.stars +
+    ' <span class="rcount">(' + r.count + ' reviews)</span></span>';
+}
+function sizeFloorSpans(room){
+  var s = "";
+  if(room.sqft) s += "<span>" + room.sqft + " sq ft</span>";
+  if(room.floor) s += "<span>Floor " + room.floor + "</span>";
+  return s;
+}
+function applyURL(room){ return room.rentredi || RENTREDI; }
+
+function cardHTML(room){
+  var price = room.price
+    ? '<div class="price-row"><span class="price">' + money(room.price) + '</span><span class="price-per">/ month · utilities incl.</span></div>'
+    : room.askPrice
+    ? '<div class="price-row"><span class="price-private">Monthly rate — ask us</span></div>'
+    : '<div class="price-row"><span class="price-private">Private contract pricing — just ask</span></div>';
+  var airbnbBtn = room.airbnb
+    ? '<a class="btn btn-ghost btn-small" href="' + room.airbnb + '" target="_blank" rel="noopener">Airbnb</a>' : '';
+  var note = room.housePhoto
+    ? '<div class="photo-note">House photo — ask us for room photos</div>' : '';
+  return '<article class="card" data-status="' + room.status + '">' +
+    '<div class="card-photo"><img src="' + room.img + '" alt="' +
+      (room.housePhoto ? 'Sunstone House — shared spaces and grounds' : 'The ' + room.name + ' room at Sunstone House') +
+      '" loading="lazy" />' +
+      '<span class="' + badgeClass(room.status) + '">' + room.statusLabel + '</span>' +
+      '<span class="code">' + room.code + '</span>' + note + '</div>' +
+    '<div class="card-body"><h4>' + room.name + '</h4>' +
+      '<div class="card-title">' + room.title.replace(/^Sunstone House\s*-?\s*/,'') + '</div>' +
+      (room.rating ? '<div>' + ratingHTML(room.rating) + '</div>' : '') +
+      '<div class="meta"><span>' + room.bed + '</span><span>Unit ' + room.unit + '</span>' + sizeFloorSpans(room) + '</div>' +
+      price +
+      '<div class="card-actions">' +
+        '<button class="btn btn-ghost btn-small" data-details="' + room.code + '">Details</button>' +
+        '<a class="btn btn-accent btn-small" href="' + applyURL(room) + '" target="_blank" rel="noopener">Apply</a>' +
+        airbnbBtn +
+      '</div></div></article>';
+}
+
+function renderRooms(){
+  var host = document.getElementById("room-units");
+  var html = "";
+  UNITS.forEach(function(u){
+    html += '<div class="unit-block" data-unit="' + u.id + '">' +
+      '<div class="unit-head"><h3>Unit ' + u.id + '</h3><span>' + u.note + '</span></div>' +
+      '<div class="grid">' +
+      ROOMS.filter(function(r){ return r.unit===u.id; }).map(cardHTML).join("") +
+      '</div></div>';
+  });
+  host.innerHTML = html;
+  host.querySelectorAll("[data-details]").forEach(function(btn){
+    btn.addEventListener("click", function(){ openModal(btn.getAttribute("data-details")); });
+  });
+}
+
+var filterBtns = document.querySelectorAll(".filter-btn");
+filterBtns.forEach(function(btn){
+  btn.addEventListener("click", function(){
+    filterBtns.forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+    btn.setAttribute("aria-pressed","true");
+    var f = btn.getAttribute("data-filter");
+    document.querySelectorAll(".card").forEach(function(card){
+      card.classList.toggle("hidden", f!=="all" && card.getAttribute("data-status")!==f);
+    });
+    document.querySelectorAll(".unit-block").forEach(function(block){
+      var any = block.querySelectorAll(".card:not(.hidden)").length > 0;
+      block.classList.toggle("hidden", !any);
     });
   });
+});
+
+/* Modal */
+var back = document.getElementById("modal-back");
+function openModal(code){
+  var room = ROOMS.filter(function(r){ return r.code===code; })[0];
+  if(!room) return;
+  var img = document.getElementById("m-img");
+  img.src = room.img;
+  img.alt = room.housePhoto ? "Sunstone House — shared spaces and grounds" : "The " + room.name + " room at Sunstone House";
+  var img2 = document.getElementById("m-img2");
+  if(room.img2){ img2.src = room.img2; img2.alt = "Another view of the " + room.name + " room"; img2.hidden = false; }
+  else { img2.hidden = true; img2.removeAttribute("src"); }
+  document.getElementById("m-name").textContent = room.name + " · " + room.code;
+  document.getElementById("m-title").textContent = room.title;
+  document.getElementById("m-rating").innerHTML = ratingHTML(room.rating);
+  document.getElementById("m-meta").innerHTML =
+    "<span>" + room.bed + "</span><span>Unit " + room.unit + "</span>" + sizeFloorSpans(room) + "<span>" + room.statusLabel + "</span>" +
+    (room.housePhoto ? "<span>Photo shown is of the house — ask us for room photos</span>" : "");
+  document.getElementById("m-desc").textContent = room.desc;
+  document.getElementById("m-price").innerHTML = room.price
+    ? '<span class="price">' + money(room.price) + '</span><span class="price-per">/ month · utilities included · $0 deposit on private contract</span>'
+    : room.askPrice
+    ? '<span class="price-private">Monthly rate on request — email us or apply on RentRedi to confirm. Zero deposit, first month through RentRedi after approval.</span>'
+    : '<span class="price-private">Private contract — pricing on request. Zero deposit, first month through RentRedi after approval.</span>';
+  var actions = '<a class="btn btn-accent" href="' + applyURL(room) + '" target="_blank" rel="noopener">Apply &amp; pay on RentRedi</a>';
+  if(room.airbnb){
+    actions += '<a class="btn btn-ghost" href="' + room.airbnb + '" target="_blank" rel="noopener">View on Airbnb</a>';
+  } else {
+    actions += '<a class="btn btn-ghost" href="mailto:Sunventllc@gmail.com?subject=' +
+      encodeURIComponent("Sunstone House — " + room.name + " (" + room.code + ") availability") +
+      '">Ask about this room</a>';
+  }
+  document.getElementById("m-actions").innerHTML = actions;
+  back.classList.add("open");
+  back.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden";
+  document.getElementById("m-close").focus();
+}
+function closeModal(){
+  back.classList.remove("open");
+  back.setAttribute("aria-hidden","true");
+  document.body.style.overflow = "";
+}
+document.getElementById("m-close").addEventListener("click", closeModal);
+back.addEventListener("click", function(e){ if(e.target===back) closeModal(); });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
+
+renderRooms();
 </script>
 </body>
 </html>
