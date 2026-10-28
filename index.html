@@ -28,7 +28,7 @@
       "@id": "https://sunstonehousepdx.com/#business",
       "name": "Sunstone House",
       "url": "https://sunstonehousepdx.com/",
-      "description": "Furnished monthly rooms in a shared co-living house in Kenton, North Portland. Eleven private furnished rooms, month-to-month with a 31-day minimum, utilities included, no deposit on private contracts through RentRedi.",
+      "description": "Furnished monthly rooms in a shared co-living house in Kenton, North Portland. Six listed private furnished rooms, month-to-month with a 31-day minimum, utilities included, no deposit on private contracts through RentRedi.",
       "email": "sunventllc@gmail.com",
       "telephone": "+1-503-847-9796",
       "priceRange": "$1100 - $1350",
@@ -273,20 +273,20 @@
     <div class="hero-grid">
       <div>
         <h1>Furnished monthly rooms in a quiet Portland house</h1>
-        <p class="lede">Sunstone House is an eco-conscious haven in Kenton, North Portland, made for working professionals — travel nurses, contract workers, interns, and people relocating. Eleven private, keyless rooms across two units, every one named for a gemstone.</p>
+        <p class="lede">Sunstone House is an eco-conscious haven in Kenton, North Portland, made for working professionals — travel nurses, contract workers, interns, and people relocating. Six private, keyless rooms listed across two units, every one named for a gemstone.</p>
         <div class="cta-row">
           <a class="btn btn-accent" href="#rooms">See the rooms</a>
           <a class="btn btn-ghost" href="#apply">How applying &amp; paying works</a>
         </div>
         <div class="chips">
           <span class="chip"><strong>$0 deposit</strong> on private contracts</span>
-          <span class="chip">Rooms from <strong>$1,050/mo</strong></span>
+          <span class="chip">Rooms from <strong>$1,100/mo</strong></span>
           <span class="chip"><strong>30-night</strong> minimum</span>
           <span class="chip">Utilities included</span>
         </div>
       </div>
       <div class="hero-photo">
-        <img src="assets/apatite.jpg" alt="The Apatite room at Sunstone House — a bright queen room with teal bedding and a desk by the window" />
+        <img src="assets/opal.jpg" alt="The Opal room at Sunstone House — the freshly remodeled queen room with soft light all day" />
       </div>
     </div>
   </div>
@@ -308,11 +308,9 @@
         <p>Every room is furnished and keyless, with fast Wi-Fi and access to the full kitchen, in-unit laundry, backyard, and patio. Monthly rates include utilities. Book 31 days or more and the Portland / Multnomah short-term lodging taxes don't apply.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter rooms by availability">
-        <button class="filter-btn" data-filter="all" aria-pressed="true">All 11 rooms</button>
+        <button class="filter-btn" data-filter="all" aria-pressed="true">All 6 rooms</button>
         <button class="filter-btn" data-filter="open" aria-pressed="false">Open now</button>
-        <button class="filter-btn" data-filter="soon" aria-pressed="false">Opening Nov 2</button>
-        <button class="filter-btn" data-filter="ask" aria-pressed="false">Ask about availability</button>
-        <button class="filter-btn" data-filter="private" aria-pressed="false">Private contract</button>
+        <button class="filter-btn" data-filter="soon" aria-pressed="false">Opening soon</button>
       </div>
       <div id="room-units"></div>
       <div class="coming">More rooms coming soon in a third unit — names and details to follow.</div>
@@ -334,7 +332,7 @@
       </div>
       <div class="zero">
         <div class="z-big">Zero deposit</div>
-        <p>No security deposit on private contracts — apply, get approved, pay first month's rent through RentRedi, and you're in. Rent is paid through the normal RentRedi channels: <strong>Zelle</strong>, <strong>PayPal</strong>, or <strong>bank deposit</strong>. Prefer Airbnb? The other eight rooms are listed there too, and their cards link to their listings.</p>
+        <p>No security deposit on private contracts — apply, get approved, pay first month's rent through RentRedi, and you're in. Rent is paid through the normal RentRedi channels: <strong>Zelle</strong>, <strong>PayPal</strong>, or <strong>bank deposit</strong>. Prefer Airbnb? All six rooms are listed there too, and their cards link to their listings.</p>
         <a class="btn btn-accent" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Start an application</a>
       </div>
     </div>
@@ -440,19 +438,11 @@
 var RENTREDI = "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2";
 
 var UNITS = [
-  { id:"A", name:"Unit A", note:"Five rooms" },
-  { id:"C", name:"Unit C", note:"Six rooms" }
+  { id:"A", name:"Unit A", note:"1 listed room" },
+  { id:"C", name:"Unit C", note:"5 listed rooms" }
 ];
 
 var ROOMS = [
-  { code:"A1", name:"Coral", unit:"A",
-    title:"Sunstone House-Coral Rm, XL workspace, sink/vanity",
-    bed:"Queen bed", price:1350, status:"private", statusLabel:"Private contract until mid-January",
-    img:"assets/coral.jpg", img2:null, housePhoto:false,
-    rentredi: RENTREDI,
-    rating:{ stars:"5.0", count:6 },
-    desc:"A generous queen room with an XL workspace and its own sink and vanity — room to work, room to unwind. One of the house's deliberately screen-free rooms, kept quiet for real rest.",
-    airbnb:"https://airbnb.com/h/sunstonea01" },
   { code:"A2", name:"Opal", unit:"A",
     title:"Sunstone House Opal Rm-Quiet, remodeled, WiFi",
     bed:"Queen bed · Remodeled", price:1300, status:"open", statusLabel:"Open now",
@@ -461,30 +451,6 @@ var ROOMS = [
     rating:{ stars:"5.0", count:3 },
     desc:"The freshly remodeled queen room — calm colors, a proper bedside setup, and soft light all day. A guest favorite for long stays, and deliberately screen-free.",
     airbnb:"https://www.airbnb.com/rooms/1171644337801975661" },
-  { code:"A3", name:"Larimar", unit:"A",
-    title:"Sunstone House-Larimar Rm, Desk, wifi, kitchen",
-    bed:"Private room · Desk", price:null, status:"private", statusLabel:"Private contract — ask about availability",
-    img:"assets/larimar.jpg", img2:null, housePhoto:false,
-    rentredi: RENTREDI,
-    rating:{ stars:"5.0", count:9 },
-    desc:"Larimar is held on a private contract and isn't bookable on Airbnb. It has a desk and fast Wi-Fi, with the full kitchen steps away. If you're looking for a monthly private arrangement, ask us about it.",
-    airbnb:null },
-  { code:"A4", name:"Garnet", unit:"A",
-    title:"Sunstone House-Garnet rm- transit, wifi, Kitchen",
-    bed:"Twin bed · A/C", price:1100, status:"booked", statusLabel:"Booked until November 30",
-    img:"assets/garnet.jpg", img2:"assets/garnet-2.jpg", housePhoto:false,
-    rentredi: RENTREDI,
-    rating:{ stars:"4.89", count:9 },
-    desc:"A bright twin room with A/C, a long desk under the windows, and a full storage wall. Big windows, blackout curtains, and the bus line a short walk away.",
-    airbnb:"https://www.airbnb.com/rooms/886952564101590976" },
-  { code:"A5", name:"Apatite", unit:"A",
-    title:"Sunstone House-Apatite Rm-XL Spacious, kitchen",
-    bed:"~220 sq ft · Remodeled", price:null, status:"private", statusLabel:"Private contract — ask about availability",
-    img:"assets/apatite.jpg", img2:null, housePhoto:false,
-    rentredi: RENTREDI,
-    rating:{ stars:"5.0", count:3 },
-    desc:"At roughly 220 square feet, Apatite is one of the biggest rooms in the house — remodeled and spacious, with the kitchen close by. It's held on a private contract and isn't bookable on Airbnb; ask us about availability.",
-    airbnb:null },
   { code:"C1", name:"Sapphire", unit:"C",
     title:"Sunstone House - Sapphire Rm-sink vanity, walkable",
     bed:"Queen bed · Sink & vanity", price:1350, status:"soon", statusLabel:"Opens November 1",
@@ -501,14 +467,6 @@ var ROOMS = [
     rating:{ stars:"5.0", count:9 },
     desc:"A serene queen room with a dedicated workspace, built-in bedside shelves, and A/C — right on the transit line. Emerald's long-stay guests have given it a spotless 5.0 across nine reviews.",
     airbnb:"https://www.airbnb.com/rooms/803571153281560582" },
-  { code:"C3", name:"Pyrite", unit:"C",
-    title:"Sunstone House-Pyrite Rm-A/C, Quiet, Walkable,",
-    bed:"Private room · A/C", price:null, status:"private", statusLabel:"Private contract — ask about availability",
-    img:"assets/pyrite.jpg", img2:null, housePhoto:false,
-    rentredi: RENTREDI,
-    rating:{ stars:"5.0", count:7 },
-    desc:"Pyrite is a quiet room with A/C in a walkable part of the neighborhood, held on a private contract and not bookable on Airbnb. Ask us if you're looking for a monthly private arrangement.",
-    airbnb:null },
   { code:"C4", name:"Lapis", unit:"C",
     title:"Sunstone House-Lapis Rm-Wi-Fi-W/D-dining/transit",
     bed:"Single bed", price:1100, status:"booked", statusLabel:"Booked until late November",
