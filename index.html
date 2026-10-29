@@ -28,7 +28,7 @@
       "@id": "https://sunstonehousepdx.com/#business",
       "name": "Sunstone House",
       "url": "https://sunstonehousepdx.com/",
-      "description": "Furnished monthly rooms in a shared co-living house in Kenton, North Portland. Six listed private furnished rooms, month-to-month with a 31-day minimum, utilities included, no deposit on private contracts through RentRedi.",
+      "description": "Furnished monthly rooms in a shared co-living house in Kenton, North Portland. Ten private furnished rooms, month-to-month with a 31-day minimum, utilities included, no deposit on private contracts through RentRedi.",
       "email": "sunventllc@gmail.com",
       "telephone": "+1-503-847-9796",
       "priceRange": "$1100 - $1350",
@@ -273,7 +273,7 @@
     <div class="hero-grid">
       <div>
         <h1>Furnished monthly rooms in a quiet Portland house</h1>
-        <p class="lede">Sunstone House is an eco-conscious haven in Kenton, North Portland, made for working professionals — travel nurses, contract workers, interns, and people relocating. Six private, keyless rooms listed across two units, every one named for a gemstone.</p>
+        <p class="lede">Sunstone House is an eco-conscious haven in Kenton, North Portland, made for working professionals — travel nurses, contract workers, interns, and people relocating. Ten private, keyless rooms across two units, every one named for a gemstone.</p>
         <div class="cta-row">
           <a class="btn btn-accent" href="#rooms">See the rooms</a>
           <a class="btn btn-ghost" href="#apply">How applying &amp; paying works</a>
@@ -308,7 +308,7 @@
         <p>Every room is furnished and keyless, with fast Wi-Fi and access to the full kitchen, in-unit laundry, backyard, and patio. Monthly rates include utilities. Book 31 days or more and the Portland / Multnomah short-term lodging taxes don't apply.</p>
       </div>
       <div class="filters" role="group" aria-label="Filter rooms by availability">
-        <button class="filter-btn" data-filter="all" aria-pressed="true">All 6 rooms</button>
+        <button class="filter-btn" data-filter="all" aria-pressed="true">All 10 rooms</button>
         <button class="filter-btn" data-filter="open" aria-pressed="false">Open now</button>
         <button class="filter-btn" data-filter="soon" aria-pressed="false">Opening soon</button>
       </div>
@@ -332,7 +332,7 @@
       </div>
       <div class="zero">
         <div class="z-big">Zero deposit</div>
-        <p>No security deposit on private contracts — apply, get approved, pay first month's rent through RentRedi, and you're in. Rent is paid through the normal RentRedi channels: <strong>Zelle</strong>, <strong>PayPal</strong>, or <strong>bank deposit</strong>. Prefer Airbnb? All six rooms are listed there too, and their cards link to their listings.</p>
+        <p>No security deposit on private contracts — apply, get approved, pay first month's rent through RentRedi, and you're in. Rent is paid through the normal RentRedi channels: <strong>Zelle</strong>, <strong>PayPal</strong>, or <strong>bank deposit</strong>. Prefer Airbnb? Most rooms are listed there too, and their cards link to their listings.</p>
         <a class="btn btn-accent" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Start an application</a>
       </div>
     </div>
@@ -438,11 +438,19 @@
 var RENTREDI = "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2";
 
 var UNITS = [
-  { id:"A", name:"Unit A", note:"1 listed room" },
-  { id:"C", name:"Unit C", note:"5 listed rooms" }
+  { id:"A", name:"Unit A", note:"4 rooms" },
+  { id:"C", name:"Unit C", note:"6 rooms" }
 ];
 
 var ROOMS = [
+  { code:"A1", name:"Coral", unit:"A",
+    title:"Sunstone House-Coral Rm, XL workspace, sink/vanity",
+    bed:"Queen bed", price:1350, status:"booked", statusLabel:"Booked through Dec 31 · Opens Jan 1",
+    img:"assets/coral.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:6 },
+    desc:"A generous queen room with an XL workspace and its own sink and vanity — room to work, room to unwind. One of the house's deliberately screen-free rooms, kept quiet for real rest.",
+    airbnb:"https://airbnb.com/h/sunstonea01" },
   { code:"A2", name:"Opal", unit:"A",
     title:"Sunstone House Opal Rm-Quiet, remodeled, WiFi",
     bed:"Queen bed · Remodeled", price:1300, status:"open", statusLabel:"Open now",
@@ -451,9 +459,25 @@ var ROOMS = [
     rating:{ stars:"5.0", count:3 },
     desc:"The freshly remodeled queen room — calm colors, a proper bedside setup, and soft light all day. A guest favorite for long stays, and deliberately screen-free.",
     airbnb:"https://www.airbnb.com/rooms/1171644337801975661" },
+  { code:"A4", name:"Garnet", unit:"A",
+    title:"Sunstone House-Garnet rm- transit, wifi, Kitchen",
+    bed:"Twin bed · A/C", price:1100, status:"booked", statusLabel:"Booked through Nov 30 · Opens Dec 1",
+    img:"assets/garnet.jpg", img2:"assets/garnet-2.jpg", housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"4.89", count:9 },
+    desc:"A bright twin room with A/C, a long desk under the windows, and a full storage wall. Big windows, blackout curtains, and the bus line a short walk away.",
+    airbnb:"https://www.airbnb.com/rooms/886952564101590976" },
+  { code:"A5", name:"Apatite", unit:"A",
+    title:"Sunstone House-Apatite Rm-XL Spacious, kitchen",
+    bed:"~220 sq ft · Remodeled", price:null, status:"private", statusLabel:"Private contract — month-to-month",
+    img:"assets/apatite.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:3 },
+    desc:"At roughly 220 square feet, Apatite is one of the biggest rooms in the house — remodeled and spacious, with the kitchen close by. It's held on a private contract and isn't bookable on Airbnb; ask us about availability.",
+    airbnb:null },
   { code:"C1", name:"Sapphire", unit:"C",
     title:"Sunstone House - Sapphire Rm-sink vanity, walkable",
-    bed:"Queen bed · Sink & vanity", price:1350, status:"soon", statusLabel:"Opens November 1",
+    bed:"Queen bed · Sink & vanity", price:1350, status:"open", statusLabel:"Open now",
     img:"assets/sapphire.jpg", img2:"assets/sapphire-2.jpg", housePhoto:false,
     rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C1", sqft:220, floor:2,
     rating:{ stars:"4.89", count:9 },
@@ -461,15 +485,23 @@ var ROOMS = [
     airbnb:"https://www.airbnb.com/rooms/796332063442924370" },
   { code:"C2", name:"Emerald", unit:"C",
     title:"Sunstone House-Emerald Rm-Workspace on transit",
-    bed:"Queen bed · Workspace", price:1300, status:"soon", statusLabel:"Opening Nov 2",
+    bed:"Queen bed · Workspace", price:1300, status:"soon", statusLabel:"Booked through Nov 8 · Opens Nov 9",
     img:"assets/emerald.jpg", img2:"assets/emerald-2.jpg", housePhoto:false,
     rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2", sqft:198, floor:2,
     rating:{ stars:"5.0", count:9 },
     desc:"A serene queen room with a dedicated workspace, built-in bedside shelves, and A/C — right on the transit line. Emerald's long-stay guests have given it a spotless 5.0 across nine reviews.",
     airbnb:"https://www.airbnb.com/rooms/803571153281560582" },
+  { code:"C3", name:"Pyrite", unit:"C",
+    title:"Sunstone House-Pyrite Rm-A/C, Quiet, Walkable,",
+    bed:"Private room · A/C", price:null, status:"private", statusLabel:"Private contract — month-to-month",
+    img:"assets/pyrite.jpg", img2:null, housePhoto:false,
+    rentredi: RENTREDI,
+    rating:{ stars:"5.0", count:7 },
+    desc:"Pyrite is a quiet room with A/C in a walkable part of the neighborhood, held on a private contract and not bookable on Airbnb. Ask us if you're looking for a monthly private arrangement.",
+    airbnb:null },
   { code:"C4", name:"Lapis", unit:"C",
     title:"Sunstone House-Lapis Rm-Wi-Fi-W/D-dining/transit",
-    bed:"Single bed", price:1100, status:"booked", statusLabel:"Booked until late November",
+    bed:"Single bed", price:1100, status:"booked", statusLabel:"Booked through Nov 26 · Opens Nov 27",
     img:"assets/lapis.jpg", img2:null, housePhoto:false,
     rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C4", floor:1,
     rating:{ stars:"4.85", count:13 },
