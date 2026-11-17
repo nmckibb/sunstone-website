@@ -1,0 +1,29 @@
+# Sunstone House — agent-ready headers and Markdown alternate.
+# Every rule is guarded: if a module is missing, the site keeps working
+# and the affected feature is simply skipped.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Serve the Markdown homepage to agents that ask for it.
+  # Only the homepage ("/" or "/index.html") is rewritten, and only when
+  # the request's Accept header contains text/markdown, so normal
+  # browsers are unaffected and the rule cannot loop ("/index.md"
+  # does not match the pattern above).
+  RewriteCond %{HTTP:Accept} text/markdown
+  RewriteRule ^(index\.html)?$ /index.md [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  # Serve Markdown files as text/markdown.
+  AddType text/markdown .md
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Guarantee the Markdown content type even if AddType is overridden.
+  <FilesMatch "\.md$">
+    Header set Content-Type "text/markdown; charset=utf-8"
+  </FilesMatch>
+
+  # Advertise the machine-readable alternates on every response.
+  Header always set Link '</llms.txt>; rel="alternate"; type="text/plain", </index.md>; rel="alternate"; type="text/markdown"'
+</IfModule>

@@ -19,6 +19,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <title>Sunstone House — Furnished Monthly Rooms in North Portland</title>
 <link rel="canonical" href="https://sunstonehousepdx.com/" />
+<link rel="alternate" type="text/markdown" href="/index.md" />
+<link rel="alternate" type="text/plain" href="/llms.txt" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -216,7 +218,7 @@
 
   /* Footer */
   footer{margin-top:60px;border-top:1px solid var(--line);background:var(--surface)}
-  .foot-in{padding:38px 0 30px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px}
+  .foot-in{padding:38px 0 30px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:28px}
   @media (max-width:760px){ .foot-in{grid-template-columns:1fr} }
   footer h4{font-family:"Marcellus",serif;margin:0 0 10px;font-size:1.1rem;letter-spacing:.06em}
   footer p, footer a{font-size:.95rem}
@@ -417,6 +419,14 @@
           <a href="#rooms">Browse the rooms</a>
         </div>
       </div>
+      <div>
+        <h4>About Sunstone</h4>
+        <div class="foot-links">
+          <a href="/about.html">About the house</a>
+          <a href="/contact.html">Contact us</a>
+          <a href="/terms.html">Terms &amp; house rules</a>
+        </div>
+      </div>
     </div>
     <div class="fineprint">Monthly rates shown are for private contracts through RentRedi and include utilities. Airbnb prices may differ. Availability changes as rooms book — the fastest way to check a room is to apply or email us.</div>
   </div>
@@ -517,7 +527,7 @@ var ROOMS = [
     airbnb:null },
   { code:"C4", name:"Lapis", unit:"C",
     title:"Sunstone House-Lapis Rm-Wi-Fi-W/D-dining/transit",
-    bed:"Single bed", price:null, status:"private", statusLabel:"Private contract — month-to-month",
+    bed:"Single bed", price:1100, status:"soon", statusLabel:"Booked · Opens ~Nov 25",
     img:"assets/lapis.jpg", img2:null, housePhoto:false,
     rentredi:"https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C4", floor:1,
     rating:{ stars:"4.85", count:13 },
@@ -525,7 +535,7 @@ var ROOMS = [
     airbnb:"https://www.airbnb.com/rooms/806509557115505125" },
   { code:"C5", name:"Kunzite", unit:"C",
     title:"Sunstone House-Kunzite Rm-petite, kitchen, transit",
-    bed:"Twin bed · Petite room", price:1100, status:"soon", statusLabel:"Booked through Dec 22 · Opens Dec 23",
+    bed:"Twin bed · Petite room", price:1050, status:"soon", statusLabel:"Booked through Dec 22 · Opens Dec 23",
     img:"assets/kunzite.jpg", img2:null, housePhoto:false,
     rentredi: RENTREDI,
     rating:{ stars:"5.0", count:12 },
@@ -663,6 +673,89 @@ back.addEventListener("click", function(e){ if(e.target===back) closeModal(); })
 document.addEventListener("keydown", function(e){ if(e.key==="Escape") closeModal(); });
 
 renderRooms();
+</script>
+<script>
+/* Sunstone House agent tools (WebMCP).
+   Registered only when the browser exposes navigator.modelContext.
+   The page works exactly the same without it. */
+(function () {
+  var RENTREDI_MAIN = "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2";
+  var AS_OF = "2026-11-17";
+  var AGENT_ROOMS = [
+    { code: "A1", name: "Coral", unit: "A", bed: "Queen bed", price: 1350, sqft: null, floor: null, desk: true, status: "private", statusLabel: "Private contract until mid-January 2027", apply: RENTREDI_MAIN },
+    { code: "A2", name: "Opal", unit: "A", bed: "Queen bed, remodeled", price: 1300, sqft: 160, floor: 2, desk: true, status: "open", statusLabel: "Open now", apply: "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/A2" },
+    { code: "A3", name: "Larimar", unit: "A", bed: "Private room, desk", price: null, sqft: null, floor: null, desk: true, status: "private", statusLabel: "Private contract \u2014 month-to-month", apply: RENTREDI_MAIN },
+    { code: "A4", name: "Garnet", unit: "A", bed: "Twin bed, A/C", price: 1100, sqft: null, floor: null, desk: true, status: "booked", statusLabel: "Booked through Nov 30 \u00b7 Opens Dec 1", apply: RENTREDI_MAIN },
+    { code: "A5", name: "Apatite", unit: "A", bed: "Private room, about 220 sq ft, remodeled", price: null, sqft: 220, floor: null, desk: true, status: "private", statusLabel: "Private contract \u2014 month-to-month", apply: RENTREDI_MAIN },
+    { code: "C1", name: "Sapphire", unit: "C", bed: "Queen bed, sink and vanity, walk-in closet", price: 1350, sqft: 220, floor: 2, desk: true, status: "booked", statusLabel: "Booked through Dec 6 \u00b7 Opens Dec 7", apply: "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C1" },
+    { code: "C2", name: "Emerald", unit: "C", bed: "Queen bed, workspace", price: 1300, sqft: 198, floor: 2, desk: true, status: "open", statusLabel: "Open now", apply: "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2" },
+    { code: "C3", name: "Pyrite", unit: "C", bed: "Private room, A/C", price: null, sqft: null, floor: null, desk: true, status: "private", statusLabel: "Private contract \u2014 month-to-month", apply: RENTREDI_MAIN },
+    { code: "C4", name: "Lapis", unit: "C", bed: "Single bed", price: 1100, sqft: null, floor: 1, desk: true, status: "booked", statusLabel: "Booked \u00b7 next opening about Nov 25", apply: "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C4" },
+    { code: "C5", name: "Kunzite", unit: "C", bed: "Petite twin bed, no desk", price: 1050, sqft: null, floor: null, desk: false, status: "booked", statusLabel: "Booked through Dec 22 \u00b7 Opens Dec 23", apply: RENTREDI_MAIN },
+    { code: "C6", name: "Azurite", unit: "C", bed: "Single bed, desk", price: 1100, sqft: null, floor: 2, desk: true, status: "private", statusLabel: "Private contract \u2014 month-to-month", apply: "https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C6" }
+  ];
+
+  function publicRoom(r) {
+    return { name: r.name, code: r.code, unit: r.unit, bed: r.bed,
+      pricePerMonthUSD: r.price, sqft: r.sqft, floor: r.floor, desk: r.desk,
+      status: r.status, availability: r.statusLabel, applyUrl: r.apply };
+  }
+
+  function listOpenRooms() {
+    var open = AGENT_ROOMS.filter(function (r) { return r.status === "open"; }).map(publicRoom);
+    return {
+      asOf: AS_OF,
+      openNow: open,
+      note: "Monthly rates include utilities. Zero deposit on private contracts through RentRedi. 31-day minimum stay; month-to-month after. Apply on RentRedi or email Sunventllc@gmail.com."
+    };
+  }
+
+  function getRoomDetails(args) {
+    var q = args && typeof args.room === "string" ? args.room.trim().toLowerCase() : "";
+    var found = null;
+    for (var i = 0; i < AGENT_ROOMS.length; i++) {
+      var r = AGENT_ROOMS[i];
+      if (r.name.toLowerCase() === q || r.code.toLowerCase() === q) { found = r; break; }
+    }
+    if (!found) {
+      return { error: "No Sunstone House room matches '" + (args && args.room ? String(args.room) : "") + "'.",
+        rooms: AGENT_ROOMS.map(function (r) { return r.name + " (" + r.code + ")"; }) };
+    }
+    var out = publicRoom(found);
+    out.asOf = AS_OF;
+    return out;
+  }
+
+  function register() {
+    try {
+      if (typeof navigator === "undefined" || !navigator.modelContext ||
+          typeof navigator.modelContext.registerTool !== "function") return;
+      navigator.modelContext.registerTool({
+        name: "list_open_rooms",
+        description: "List the Sunstone House rooms currently open for monthly stays, with monthly rates in USD. Use this first when someone asks what is available right now.",
+        inputSchema: { type: "object", properties: {}, additionalProperties: false },
+        execute: listOpenRooms
+      });
+      navigator.modelContext.registerTool({
+        name: "get_room_details",
+        description: "Get the monthly rate, bed, size, and availability for one Sunstone House room, by room name (for example Opal) or room code (for example A2).",
+        inputSchema: {
+          type: "object",
+          properties: { room: { type: "string", description: "Room name or room code, for example Opal or A2." } },
+          required: ["room"],
+          additionalProperties: false
+        },
+        execute: getRoomDetails
+      });
+    } catch (e) { /* WebMCP is optional; the page works without it. */ }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", register);
+  } else {
+    register();
+  }
+})();
 </script>
 </body>
 </html>

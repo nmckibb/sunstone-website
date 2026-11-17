@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5K75ML6BBK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5K75ML6BBK');
+</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light" />
+<meta name="description" content="About Sunstone House: a quiet shared house in Kenton, North Portland, with eleven furnished monthly rooms for working professionals. The sunstone is Oregon's state gem — every room is named for a gemstone." />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<title>About Sunstone House — Furnished Monthly Rooms in North Portland</title>
+<link rel="canonical" href="https://sunstonehousepdx.com/about.html" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LodgingBusiness", "LocalBusiness"],
+      "@id": "https://sunstonehousepdx.com/#business",
+      "name": "Sunstone House",
+      "url": "https://sunstonehousepdx.com/",
+      "description": "Furnished monthly rooms in a shared co-living house in Kenton, North Portland. Eleven private furnished rooms, month-to-month with a 31-day minimum, utilities included, no deposit on private contracts through RentRedi.",
+      "email": "sunventllc@gmail.com",
+      "telephone": "+1-503-847-9796",
+      "priceRange": "$1100 - $1350",
+      "currenciesAccepted": "USD",
+      "petsAllowed": false,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Portland",
+        "addressRegion": "OR",
+        "postalCode": "97217",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://www.instagram.com/sunstonehousepdx",
+        "https://www.airbnb.com/users/profile/1470221697870395558"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sunstonehousepdx.com/#website",
+      "name": "Sunstone House",
+      "url": "https://sunstonehousepdx.com/",
+      "publisher": { "@id": "https://sunstonehousepdx.com/#business" }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#faf4e7; --surface:#fffdf7; --surface2:#f4ead6;
+    --bg-grad:
+      radial-gradient(ellipse 58% 320px at 50% -50px, rgba(224,116,26,.38), rgba(224,116,26,0) 70%),
+      linear-gradient(180deg, #fce7c2 0%, #f6d6a4 24%, #f4dcb0 48%, #faf4e7 78%);
+    --ink:#2c2620; --muted:#6f6252; --line:#e6d9c3;
+    --accent:#bc5f16; --accent-ink:#ffffff; --accent-soft:#f7e3cb;
+    --green:#3f5d4a; --green-soft:#e2ead9;
+    --amber:#8a6414; --amber-soft:#f6ecd2;
+    --shadow:0 10px 30px rgba(84,58,20,.12);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg-grad);color:var(--ink);
+    font-family:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:"Marcellus",Georgia,serif;font-weight:400;letter-spacing:.01em}
+  a{color:var(--accent)}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .header-in{display:flex;align-items:center;gap:16px;padding:10px 0}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+  .brand img{width:52px;height:52px;border-radius:12px;object-fit:cover;background:#f7efdd}
+  .brand .bname{font-family:"Marcellus",serif;font-size:1.25rem;letter-spacing:.14em;line-height:1.1}
+  .brand .bsub{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+  nav a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.95rem}
+  nav a:hover{color:var(--accent)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 22px;
+    font-weight:800;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-accent{background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow)}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn-small{padding:8px 16px;font-size:.88rem}
+  @media (max-width:760px){ nav a:not(.btn){display:none} .brand .bsub{display:none} }
+
+  /* Hero */
+  .hero{padding:44px 0 30px}
+  .hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:38px;align-items:center}
+  @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} }
+  .hero h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.12;margin:0 0 14px}
+  .hero p.lede{font-size:1.13rem;color:var(--muted);margin:0 0 22px;max-width:34em}
+  .hero-photo{border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
+  .hero-photo img{width:100%;height:100%;max-height:520px;object-fit:cover}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 0}
+  .chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;
+    padding:7px 14px;font-size:.87rem;font-weight:700}
+  .chip strong{color:var(--accent)}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+
+  /* Fact strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    background:var(--surface);margin:26px 0 0}
+  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:18px 0}
+  @media (max-width:760px){ .strip-in{grid-template-columns:repeat(2,1fr)} }
+  .fact{text-align:center;padding:6px}
+  .fact .f-big{font-family:"Marcellus",serif;font-size:1.3rem}
+  .fact .f-small{font-size:.82rem;color:var(--muted);font-weight:700;letter-spacing:.04em}
+
+  /* Sections */
+  section{padding:52px 0 8px}
+  .sec-head{max-width:44em;margin-bottom:8px}
+  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin:0 0 8px}
+  .sec-head p{color:var(--muted);margin:0}
+
+  /* Filters */
+  .filters{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 6px}
+  .filter-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);
+    border-radius:999px;padding:8px 16px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer}
+  .filter-btn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+  /* Units + room cards */
+  .unit-head{display:flex;align-items:baseline;gap:14px;margin:34px 0 16px}
+  .unit-head h3{font-size:1.45rem;margin:0}
+  .unit-head span{color:var(--muted);font-size:.92rem;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media (max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:620px){ .grid{grid-template-columns:1fr} }
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(84,58,20,.05)}
+  .card-photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--surface2)}
+  .card-photo img{width:100%;height:100%;object-fit:cover}
+  .badge{position:absolute;top:12px;left:12px;border-radius:999px;padding:5px 12px;
+    font-size:.76rem;font-weight:800;letter-spacing:.03em;background:var(--surface);color:var(--ink);
+    box-shadow:0 2px 8px rgba(0,0,0,.18)}
+  .badge.open{background:var(--green-soft);color:var(--green)}
+  .badge.soon{background:var(--amber-soft);color:var(--amber)}
+  .badge.private{background:var(--surface2);color:var(--muted)}
+  .code{position:absolute;top:12px;right:12px;border-radius:8px;padding:4px 9px;font-size:.76rem;
+    font-weight:800;background:rgba(24,18,10,.72);color:#fdf6e9;letter-spacing:.06em}
+  .photo-note{position:absolute;bottom:0;left:0;right:0;padding:14px 12px 7px;font-size:.74rem;
+    font-weight:700;color:#fdf6e9;background:linear-gradient(transparent,rgba(24,18,10,.66))}
+  .card-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .card-body h4{font-family:"Marcellus",serif;font-size:1.35rem;margin:0}
+  .card-title{font-size:.9rem;color:var(--muted);font-weight:600;line-height:1.4}
+  .rating{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;font-weight:800}
+  .rating .star{color:var(--accent);font-size:1rem}
+  .rating .rcount{color:var(--muted);font-weight:700}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.9rem;font-weight:700;color:var(--muted)}
+  .price-row{margin-top:auto;padding-top:10px;display:flex;align-items:baseline;gap:6px}
+  .price{font-family:"Marcellus",serif;font-size:1.5rem}
+  .price-per{color:var(--muted);font-weight:700;font-size:.88rem}
+  .price-private{font-weight:800;color:var(--muted);font-size:.98rem}
+  .card-actions{display:flex;gap:9px;margin-top:12px;flex-wrap:wrap}
+  .card-actions .btn{flex:1;justify-content:center}
+  .hidden{display:none !important}
+
+  .coming{margin:30px 0 4px;border:1px dashed var(--line);border-radius:var(--radius);
+    padding:18px 22px;text-align:center;color:var(--muted);font-weight:700;background:var(--surface)}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+  @media (max-width:980px){ .steps{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:560px){ .steps{grid-template-columns:1fr} }
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .step .num{width:38px;height:38px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;font-family:"Marcellus",serif;font-size:1.15rem;margin-bottom:12px}
+  .step h4{margin:0 0 6px;font-size:1.05rem}
+  .step p{margin:0;color:var(--muted);font-size:.94rem}
+  .zero{margin-top:20px;background:var(--green-soft);border-radius:var(--radius);padding:22px 26px;
+    display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .zero .z-big{font-family:"Marcellus",serif;font-size:1.6rem;color:var(--green)}
+  .zero p{margin:0;max-width:46em}
+
+  /* House */
+  .house-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:24px;align-items:start}
+  @media (max-width:880px){ .house-grid{grid-template-columns:1fr} }
+  .amen{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+  @media (max-width:480px){ .amen{grid-template-columns:1fr} }
+  .amen li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+  .amen .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:8px}
+  .house-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .house-photos img{border-radius:14px;width:100%;height:190px;object-fit:cover}
+  .house-photos img.wide{grid-column:1/-1;height:230px}
+  .rules{margin-top:22px;background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);padding:20px 24px}
+  .rules h4{margin:0 0 8px;font-family:"Marcellus",serif;font-size:1.15rem}
+  .rules p{margin:0;color:var(--muted)}
+
+  /* Story */
+  .story{background:var(--surface);border:1px solid var(--line);border-radius:24px;
+    padding:34px;margin-top:24px;display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:center}
+  @media (max-width:620px){ .story{grid-template-columns:1fr;text-align:center;justify-items:center} }
+  .story img{width:120px;height:120px;border-radius:16px;object-fit:cover;background:#f7efdd}
+  .story h3{margin:0 0 8px;font-size:1.5rem}
+  .story p{margin:0;color:var(--muted);max-width:52em}
+
+  /* Footer */
+  footer{margin-top:60px;border-top:1px solid var(--line);background:var(--surface)}
+  .foot-in{padding:38px 0 30px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:28px}
+  @media (max-width:760px){ .foot-in{grid-template-columns:1fr} }
+  footer h4{font-family:"Marcellus",serif;margin:0 0 10px;font-size:1.1rem;letter-spacing:.06em}
+  footer p, footer a{font-size:.95rem}
+  footer p{color:var(--muted);margin:0 0 6px}
+  .foot-links{display:flex;flex-direction:column;gap:8px}
+  .foot-links a{color:var(--ink);text-decoration:none;font-weight:700}
+  .foot-links a:hover{color:var(--accent)}
+  .fineprint{border-top:1px solid var(--line);padding:16px 0 26px;color:var(--muted);font-size:.84rem}
+
+  /* Modal */
+  .modal-back{position:fixed;inset:0;background:rgba(20,14,6,.6);z-index:60;display:none;
+    align-items:flex-end;justify-content:center;padding:0}
+  .modal-back.open{display:flex}
+  .modal{background:var(--bg);width:100%;max-width:680px;max-height:92vh;overflow:auto;
+    border-radius:22px 22px 0 0;padding:0 0 28px;animation:rise .22s ease}
+  @media (min-width:700px){ .modal-back{align-items:center;padding:24px} .modal{border-radius:22px} }
+  @keyframes rise{from{transform:translateY(16px);opacity:.4}to{transform:none;opacity:1}}
+  @media (prefers-reduced-motion: reduce){ .modal{animation:none} html{scroll-behavior:auto} }
+  .modal-photo{position:relative}
+  .modal-photo img.main{width:100%;height:300px;object-fit:cover}
+  .modal-photo img.second{width:100%;height:190px;object-fit:cover;margin-top:4px}
+  .modal-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;
+    border:none;background:rgba(24,18,10,.72);color:#fdf6e9;font-size:1.2rem;cursor:pointer;line-height:1}
+  .modal-body{padding:22px 26px 0}
+  .modal-body h3{font-size:1.7rem;margin:0 0 2px}
+  .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .modal-actions .btn{flex:1;justify-content:center;min-width:150px}
+</style>
+<style>
+  .page{padding:44px 0 10px;max-width:780px}
+  .page h1{font-size:clamp(2rem,4.4vw,2.9rem);margin:0 0 14px;line-height:1.15}
+  .page h2{font-size:1.45rem;margin:30px 0 8px}
+  .page p{color:var(--muted)}
+  .page p.lede{font-size:1.13rem;color:var(--muted)}
+  .page ul{color:var(--muted);line-height:1.7}
+  .page ul.contact-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .page ul.contact-list li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="brand" href="/">
+      <img src="assets/logo.png" alt="Sunstone House logo — a house with a rising sun" />
+      <span>
+        <span class="bname">SUNSTONE HOUSE</span><br />
+        <span class="bsub">Kenton · North Portland</span>
+      </span>
+    </a>
+    <nav>
+      <a href="/#rooms">Rooms</a>
+      <a href="/#apply">How to apply</a>
+      <a href="/#house">The house</a>
+      <a href="/#contact">Contact</a>
+      <a class="btn btn-accent btn-small" href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Apply on RentRedi</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page">
+  <h1>About Sunstone House</h1>
+  <p class="lede">Sunstone House is a quiet, shared house in Kenton, North Portland, with eleven furnished private rooms for working professionals on monthly stays &mdash; travel nurses, contractors, interns, and people relocating.</p>
+
+  <h2>Why &ldquo;Sunstone&rdquo;?</h2>
+  <p>The sunstone is Oregon&rsquo;s state gem. Nathan loves gems, and Shelley creates jewelry herself &mdash; so the house took the gem&rsquo;s name, and every room in it is named for a gemstone too: Opal, Sapphire, Emerald, Garnet, and the rest. Small stones, each one different, all under one roof.</p>
+
+  <h2>Built by hand, run like a household</h2>
+  <p>Sunstone House has been built up over four years &mdash; every room painted, furnished, and decorated by hand &mdash; and is run day to day by Shelley, with Nathan as owner and host of record. It is a working household first: guests are screened on behavior, current guests&rsquo; comfort comes first, and the house stays quiet so people who work can rest.</p>
+
+  <h2>The house</h2>
+  <p>Eleven private, keyless rooms across two units (Unit A and Unit C), with a third unit of five rooms on the way. Every room is furnished, with fast Wi-Fi and access to the full shared kitchen, free in-unit washer and dryer, backyard and patio, and free off-street parking. Common areas are cleaned weekly. There are 50+ amenities, and the house sits on two bus lines &mdash; the 75 one block away on N Lombard, the 35 a few blocks away &mdash; with seven restaurants and two caf&eacute;s within five blocks.</p>
+
+  <h2>Who stays here</h2>
+  <p>Working professionals on month-long stays: travel nurses and hospital staff, contractors, interns, and people relocating to Portland. Stays are month-to-month with a 31-day minimum, and there is no deposit on private contracts through RentRedi.</p>
+
+  <p><a class="btn btn-accent" href="/#rooms">See the rooms</a> <a class="btn btn-ghost" href="/contact.html">Contact us</a></p>
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-in">
+      <div>
+        <h4>SUNSTONE HOUSE</h4>
+        <p>Furnished monthly rooms in Kenton, North Portland, Oregon. For working professionals, travel nurses, contract workers, interns, and relocators.</p>
+        <p>Hosted by Nathan, with Shelley — ask us anything about the rooms.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="foot-links">
+          <a href="mailto:Sunventllc@gmail.com">Sunventllc@gmail.com</a>
+          <a href="tel:+15038479796">503-847-9796</a>
+          <a href="https://www.instagram.com/sunstonehousepdx" target="_blank" rel="noopener">Instagram · @sunstonehousepdx</a>
+        </div>
+      </div>
+      <div>
+        <h4>Apply &amp; pay</h4>
+        <div class="foot-links">
+          <a href="https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2" target="_blank" rel="noopener">Apply on RentRedi</a>
+          <a href="/#apply">How it works — zero deposit</a>
+          <a href="/#rooms">Browse the rooms</a>
+        </div>
+      </div>
+      <div>
+        <h4>About Sunstone</h4>
+        <div class="foot-links">
+          <a href="/about.html">About the house</a>
+          <a href="/contact.html">Contact us</a>
+          <a href="/terms.html">Terms &amp; house rules</a>
+        </div>
+      </div>
+    </div>
+    <div class="fineprint">Monthly rates shown are for private contracts through RentRedi and include utilities. Airbnb prices may differ. Availability changes as rooms book — the fastest way to check a room is to apply or email us.</div>
+  </div>
+</footer>
+</body>
+</html>
