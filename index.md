@@ -19,16 +19,16 @@ Availability as of November 17, 2026.
 
 ### Opening soon
 
-- **Lapis (Unit C4)** — $1,100/mo — single bed, floor 1 — next opening about Nov 25
-- **Garnet (Unit A4)** — $1,100/mo — twin bed, A/C — opens Dec 1
+- **Lapis (Unit C4)** — $1,100/mo — single bed, 115 sq ft, floor 1 — next opening about Nov 25
+- **Garnet (Unit A4)** — $1,100/mo — twin bed, 107 sq ft, A/C — opens Dec 1
 - **Sapphire (Unit C1)** — $1,350/mo — queen bed, 220 sq ft, sink vanity, walk-in closet, floor 2 — opens Dec 7
-- **Kunzite (Unit C5)** — $1,050/mo — petite twin bed, no desk — opens Dec 23
+- **Kunzite (Unit C5)** — $1,050/mo — petite twin bed, 79 sq ft, no desk — opens Dec 23
 
 ### Private contract
 
 - **Coral (Unit A1)** — $1,350/mo — queen bed, 220 sq ft, XL workspace, sink/vanity — private contract until mid-January 2027
-- **Azurite (Unit C6)** — $1,100/mo — single bed, desk, floor 2 — private contract
-- **Pyrite (Unit C3), Larimar (Unit A3), Apatite (Unit A5)** — private contract, month-to-month — pricing on request
+- **Azurite (Unit C6)** — $1,100/mo — single bed, 98 sq ft, desk, floor 2 — private contract
+- **Pyrite (Unit C3, 106 sq ft), Larimar (Unit A3, 105 sq ft), Apatite (Unit A5, 220 sq ft)** — private contract, month-to-month — pricing on request
 
 A third unit of five rooms is coming soon — names and details to follow.
 
