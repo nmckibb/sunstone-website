@@ -26,7 +26,7 @@ Availability as of November 17, 2026.
 
 ### Private contract
 
-- **Coral (Unit A1)** — $1,350/mo — queen bed, XL workspace, sink/vanity — private contract until mid-January 2027
+- **Coral (Unit A1)** — $1,350/mo — queen bed, 220 sq ft, XL workspace, sink/vanity — private contract until mid-January 2027
 - **Azurite (Unit C6)** — $1,100/mo — single bed, desk, floor 2 — private contract
 - **Pyrite (Unit C3), Larimar (Unit A3), Apatite (Unit A5)** — private contract, month-to-month — pricing on request
 
