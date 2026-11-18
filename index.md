@@ -15,7 +15,7 @@ Availability as of November 17, 2026.
 ### Open now
 
 - **Opal (Unit A2)** — $1,300/mo — queen bed, remodeled, 160 sq ft, floor 2 — [Apply on RentRedi](https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/A2)
-- **Emerald (Unit C2)** — $1,300/mo — queen bed, workspace, 198 sq ft, floor 2 — [Apply on RentRedi](https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2)
+- **Emerald (Unit C2)** — $1,300/mo — queen bed, workspace, 160 sq ft, floor 2 — [Apply on RentRedi](https://app.rentredi.com/listingDetails/nP26V74aCEU7MQTvePxpmJXlaKL2/-LOnUk-N7JEKTA-7EGj0/C2)
 
 ### Opening soon
 
