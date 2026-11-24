@@ -364,7 +364,7 @@
             'We found your booking: ' + matchSummary(res) + '.';
           document.getElementById('lookupEntry').style.display = 'none';
           document.getElementById('yesBtn').textContent =
-            document.getElementById('volUpfront').checked
+            (via === 'booking' && document.getElementById('volUpfront').checked)
               ? "That's me — continue" : "That's me — register & connect";
           document.getElementById('foundCard').style.display = 'block';
         } else if (next) {
@@ -381,7 +381,7 @@
   });
 
   document.getElementById('volUpfront').addEventListener('change', function () {
-    if (pendingMatch) {
+    if (pendingMatch && pendingMatch.via === 'booking') {
       document.getElementById('yesBtn').textContent = this.checked
         ? "That's me — continue" : "That's me — register & connect";
     }
@@ -400,8 +400,12 @@
     // Nathan's flow (Nov 24): the volunteer box sits below the
     // reservation code. Ticked → the details page (fields required —
     // their word makes them binding). Unticked → register them with
-    // the code (or phone) alone, no details page.
-    if (complete && !vol) { registerWithCode(); return; }
+    // the code alone, no details page. A DIRECT guest (phone match)
+    // always registers straight through, ticked or not — Sunstone
+    // already holds their details from the application process, so
+    // there is nothing to ask them.
+    if (complete && pendingMatch.via === 'phone') { registerWithCode(''); return; }
+    if (complete && !vol) { registerWithCode('No'); return; }
     document.getElementById('foundCard').style.display = 'none';
     document.getElementById('foundSummary').textContent =
       'Booking found: ' + matchSummary(pendingMatch.res) + ' ✓ — just add the details below.';
@@ -418,17 +422,19 @@
 
   // Code-only registration: the booking record IS the registration.
   // Posts the stay fields the booking holds (address/plate blank;
-  // phone present only for direct bookings), volunteered = No, then
-  // connects. If the save fails, fall back to the short form so the
-  // guest is never stranded.
-  function registerWithCode() {
+  // phone present only for direct bookings), then connects.
+  // volunteered = 'No' for a code match left unticked; blank for a
+  // direct guest, who was never asked. If the save fails, fall back
+  // to the short form so the guest is never stranded.
+  function registerWithCode(volunteered) {
     var f = new FormData(regForm);
     var data = {
       name: f.get('name'), address: f.get('address') || '',
       phone: f.get('phone') || '', rescode: f.get('rescode'),
       room: f.get('room'), checkin: f.get('checkin'),
       checkout: f.get('checkout'), guests: f.get('guests'),
-      plate: f.get('plate') || '', mac: MAC, ip: IP, volunteered: 'No'
+      plate: f.get('plate') || '', mac: MAC, ip: IP,
+      volunteered: volunteered
     };
     var yesBtn = document.getElementById('yesBtn');
     var noBtn = document.getElementById('noBtn');
