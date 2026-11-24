@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunstone House — Guest WiFi</title>
+<style>
+  body { font-family: sans-serif; margin: 0; background: #faf4e7; color: #2c2620; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 20px 16px 40px; }
+  h1 { font-size: 24px; margin: 8px 0 2px; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; color: #3f5d4a; }
+  .sub { color: #6f6252; font-size: 14px; margin-bottom: 18px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin: 14px 0 4px; }
+  input, select { width: 100%; box-sizing: border-box; padding: 10px;
+    font-size: 16px; border: 1px solid #e6d9c3; border-radius: 8px; background: #fffdf7; }
+  .row { display: flex; gap: 10px; } .row > div { flex: 1; }
+  .aup { background: #fffdf7; border: 1px solid #e6d9c3; border-radius: 8px;
+    padding: 12px 14px; font-size: 13px; line-height: 1.45; margin-top: 18px; }
+  .agree { display: flex; gap: 8px; align-items: flex-start; margin-top: 12px;
+    font-size: 14px; font-weight: 600; }
+  .agree input { width: auto; margin-top: 2px; }
+  button { display: block; width: 100%; box-sizing: border-box;
+    text-align: center; padding: 14px; font-size: 17px; font-weight: 700;
+    border: 0; border-radius: 10px; margin-top: 18px; cursor: pointer;
+    background: #bc5f16; color: #fff; }
+  button:disabled { background: #e9dcc2; color: #6f6252; cursor: default; }
+  button.ghost { background: #fffdf7; color: #bc5f16; border: 1px solid #bc5f16; }
+  #devadd { display: none; }
+  #reg { display: none; }
+  #foundCard { display: none; }
+  .devlink { font-size: 14px; color: #bc5f16; font-weight: 600;
+    margin-top: 22px; cursor: pointer; text-decoration: underline; }
+  .fine { font-size: 12px; color: #6f6252; margin-top: 14px; line-height: 1.4; }
+  .err { background: #f6ecd2; border: 1px solid #e6d9c3; border-radius: 8px;
+    padding: 10px 12px; font-size: 13px; margin-top: 14px; display: none; }
+  .found { font-size: 15px; line-height: 1.5; }
+  .noveh { display: flex; gap: 8px; align-items: center; margin-top: 8px;
+    font-size: 14px; color: #6f6252; }
+  .noveh input { width: auto; }
+  input[readonly] { background: #f6ecd2; color: #6f6252; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Sunstone House — Guest WiFi</h1>
+  <div class="sub">Kenton, Portland · Please register once per stay to get online.</div>
+
+  <div class="aup" style="margin-top:0"><b>Why we ask:</b> City of Portland
+    rules require us to keep a guest register — name, home address,
+    phone, dates of stay, number of guests, and license plate if you
+    brought a car. Portland can fine this property —
+    starting at $1,829 — if the register isn't kept. We ask that you
+    assist with compliance.</div>
+
+  $(if error)<div class="err" style="display:block">Sign-in note: $(error)</div>$(endif)
+  <div class="err" id="formMsg"></div>
+
+  <div class="aup" id="lookupCard"><b>Start here — find your booking.</b>
+    Enter your Airbnb reservation code, or the phone number on your
+    booking if you booked direct with us. We'll fill in most of the
+    form — you'll just add the couple of details we don't have.
+    <div id="lookupEntry">
+      <label>Airbnb reservation code</label>
+      <input id="keyInput" autocomplete="off" placeholder="e.g. HMC4ERPST9">
+      <button type="button" id="keyBtn">Find my booking</button>
+      <div class="fine" id="keyMsg"></div>
+      <p class="fine">Booked direct with us instead? Enter the phone
+        number on your booking in the same box.</p>
+      <p class="devlink" id="manualLink" style="margin-top:14px">No code or phone handy? Fill in the form instead.</p>
+    </div>
+    <div id="foundCard">
+      <p class="found" id="foundText"></p>
+      <button type="button" id="yesBtn">That's me</button>
+      <button type="button" id="noBtn" class="ghost">Not me</button>
+    </div>
+    <div id="foundDone" style="display:none">
+      <p class="found" id="foundSummary"></p>
+      <p class="devlink" id="restartLink" style="margin-top:6px">Wrong booking? Start over.</p>
+    </div>
+  </div>
+
+  <form id="reg">
+    <div id="knownFields">
+      <label>Full name *</label>
+      <input name="name" required autocomplete="name">
+      <label>Reservation code (Airbnb guests — it's in your booking details; leave blank if you booked direct)</label>
+      <input name="rescode" autocomplete="off">
+      <label>Room *</label>
+      <select name="room" required>
+        <option value="">Choose…</option>
+        <option>Opal</option><option>Emerald</option><option>Sapphire</option>
+        <option>Lapis</option><option>Kunzite</option><option>Azurite</option>
+        <option>Coral</option><option>Garnet</option><option>Apatite</option>
+        <option>Pyrite</option><option>Larimar</option><option>Other / visiting</option>
+      </select>
+      <div class="row">
+        <div><label>Check-in *</label><input name="checkin" type="date" required></div>
+        <div><label>Check-out *</label><input name="checkout" type="date" required></div>
+      </div>
+      <label>Guests in room *</label>
+      <select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+    </div>
+    <div class="aup" id="volNote" style="display:none"><b>You're registered
+      by your booking.</b> The City also asks us to record your home
+      address, phone, and license plate. We ask that you assist with
+      compliance.
+      <label class="agree"><input type="checkbox" id="volBox">
+        I volunteer to assist with compliance — I'll complete the
+        fields below.</label>
+      <div class="fine" style="margin-top:6px">If you don't volunteer,
+        you can still connect with your booking alone.</div>
+    </div>
+    <label>Home address <span class="star">*</span></label>
+    <input name="address" required autocomplete="street-address">
+    <label>Phone <span class="star">*</span></label>
+    <input name="phone" required type="tel" autocomplete="tel">
+    <label>License plate <span class="star">*</span></label>
+    <input name="plate" required autocomplete="off" placeholder="e.g. ABC1234">
+    <label class="noveh"><input type="checkbox" id="noveh">
+      No vehicle — I didn't drive here (fills in N/A).</label>
+
+    <div class="aup">
+      <b>Internet acceptable use.</b> By connecting you agree: no torrenting or
+      illegal downloading or streaming of pirated content; no spam, hacking, or
+      other unlawful use; share the bandwidth fairly (no crypto mining or
+      server hosting). Activity on this network is logged with your
+      registration, as Portland's guest-register rules require. House quiet
+      hours are 10 PM – 7 AM.
+    </div>
+    <div class="aup">
+      <b>Trash, recycling &amp; compost.</b> Please sort — food
+      scraps go in the green compost cart, bottles, cans and paper in the
+      blue recycling cart, glass in the glass bin. Portland requires this
+      service at rental homes and fines the property when bins are
+      misused — and a fine caused by a guest's unsorted waste is passed
+      on to that guest. See the
+      <a href="http://www.portland.gov/bps/garbage-recycling/home-recycling/landlord-requirements" target="_blank" rel="noopener">City of Portland rental recycling rules</a>.
+    </div>
+    <label class="agree"><input type="checkbox" id="aupbox" required>
+      I agree to the acceptable use and recycling terms above.</label>
+
+    <button id="submit" type="submit" disabled>Register &amp; connect</button>
+    <div class="fine">City of Portland rules require us to keep a guest
+      register (name, home address, phone, dates of stay, number of
+      guests, license plate if you brought a car), available to City staff on request — see the City's page,
+      <a href="https://www.portland.gov/ppd/astr-permits/maintain-astr-permits-and-conditional-uses" target="_blank" rel="noopener">Maintaining your rental permit</a>.
+      We collect only what the city requires, and it stays with Sunstone House.</div>
+  </form>
+
+  <p class="devlink" id="devtoggle">Adding another device? Tap here to connect it to your registration.</p>
+  <form id="devadd">
+    <div class="aup"><b>Adding another device?</b> If you already
+      registered on your phone, enter your reservation code (or the
+      phone number you registered with) to connect this device to the
+      same registration. Each person registers once — use this only for
+      your own extra devices.</div>
+    <label>Reservation code or phone number</label>
+    <input name="key" required autocomplete="off">
+    <div class="err" id="devMsg"></div>
+    <button id="devbtn" type="submit">Connect this device</button>
+  </form>
+
+  <!-- The router's own login. The page submits this form, unchanged in
+       mechanism from MikroTik's stock login page, once the register
+       write has gone out. -->
+  <form id="loginForm" action="$(link-login-only)" method="post" style="display:none">
+    <input type="hidden" name="username" value="guest">
+    <input type="hidden" name="password" value="SunStone">
+    <input type="hidden" name="dst" value="https://sunstonehousepdx.com">
+  </form>
+</div>
+
+<script>
+  var MAC = "$(mac)", IP = "$(ip)";
+  // The register endpoint (Apps Script web app, same deployment as the
+  // original form). If the deployment is ever replaced, update this URL.
+  var EXEC_URL = "https://script.google.com/macros/s/AKfycbyoonuTC5yvssAZ9QYgMuMyE3xe0BWV3o1AnGKHpd1xOl4dO8_F1d8voQ5TJvb-uA9o/exec";
+
+  function showMsg(id, text) {
+    var el = document.getElementById(id);
+    el.textContent = text;
+    el.style.display = text ? 'block' : 'none';
+  }
+  function encBody(obj) {
+    var parts = [];
+    for (var k in obj) {
+      if (obj.hasOwnProperty(k)) {
+        parts.push(encodeURIComponent(k) + '=' + encodeURIComponent(obj[k] == null ? '' : obj[k]));
+      }
+    }
+    return parts.join('&');
+  }
+  // POST to the register and wait for the exchange to complete. The
+  // response is opaque (no-cors); resolution means the write went out.
+  function postRegister(obj, ms) {
+    return new Promise(function (resolve, reject) {
+      var done = false;
+      var timer = setTimeout(function () {
+        if (!done) { done = true; reject(new Error('timeout')); }
+      }, ms);
+      fetch(EXEC_URL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encBody(obj)
+      }).then(function () {
+        if (!done) { done = true; clearTimeout(timer); resolve(); }
+      }, function (err) {
+        if (!done) { done = true; clearTimeout(timer); reject(err); }
+      });
+    });
+  }
+  // Read-only lookups ride JSONP (a script tag), which portal browsers
+  // allow even though the endpoint sends no CORS headers.
+  function jsonp(params, cb) {
+    var settled = false;
+    var name = '__cb' + Math.floor(Math.random() * 100000000);
+    var s = document.createElement('script');
+    function finish(res) {
+      if (settled) return;
+      settled = true;
+      try { delete window[name]; } catch (e) { window[name] = undefined; }
+      if (s.parentNode) s.parentNode.removeChild(s);
+      cb(res);
+    }
+    window[name] = function (res) { finish(res); };
+    s.onerror = function () { finish(null); };
+    s.src = EXEC_URL + '?' + params + '&callback=' + name;
+    document.body.appendChild(s);
+    setTimeout(function () { finish(null); }, 12000);
+  }
+  function doLogin() {
+    document.getElementById('loginForm').submit();
+  }
+  function ymd(d) {
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+  }
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function prettyDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || '');
+    if (!m) return iso || '';
+    return MONTHS[parseInt(m[2], 10) - 1] + ' ' + parseInt(m[3], 10) + ', ' + m[1];
+  }
+
+  var regForm = document.getElementById('reg');
+  // Default stay dates: check-in today, check-out today + 30 (the
+  // house minimum stay); most guests only confirm them.
+  (function () {
+    var now = new Date();
+    regForm.querySelector('[name="checkin"]').value = ymd(now);
+    regForm.querySelector('[name="checkout"]').value =
+      ymd(new Date(now.getTime() + 30 * 24 * 3600 * 1000));
+  })();
+  // Portal mini-browsers sometimes reload the page mid-entry; keep what
+  // the guest typed so a reload doesn't hand them a blank form.
+  try {
+    var saved = JSON.parse(sessionStorage.getItem('sunstoneReg') || '{}');
+    regForm.querySelectorAll('input[name], select[name]').forEach(function (el) {
+      if (saved[el.name] !== undefined && saved[el.name] !== '') el.value = saved[el.name];
+    });
+    regForm.addEventListener('input', function () {
+      var d = {};
+      regForm.querySelectorAll('input[name], select[name]').forEach(function (el) { d[el.name] = el.value; });
+      sessionStorage.setItem('sunstoneReg', JSON.stringify(d));
+    });
+  } catch (e) {}
+
+  // --- Unified lookup: one box takes a reservation code OR a phone
+  // number. Codes are tried against the Bookings tab (fn=booking),
+  // phones against the Private tab (fn=phone); if the first guess
+  // misses, the other is tried before giving up. A match pre-fills
+  // name / room / dates / guests (and the code or phone itself);
+  // home address is never in either tab, and the Bookings tab holds
+  // no phone, so those stay for the guest to type.
+  var keyBtn = document.getElementById('keyBtn');
+  var keyMsg = document.getElementById('keyMsg');
+  var pendingMatch = null; // { res, via, raw }
+  var matchedMode = false; // true once a booking match is confirmed
+
+  function applyMatch(res, via, raw) {
+    regForm.querySelector('[name="name"]').value = res.name || '';
+    if (via === 'booking') {
+      regForm.querySelector('[name="rescode"]').value = raw.toUpperCase();
+    } else {
+      regForm.querySelector('[name="phone"]').value = raw;
+    }
+    if (res.room) regForm.querySelector('[name="room"]').value = res.room;
+    if (res.checkin) regForm.querySelector('[name="checkin"]').value = res.checkin;
+    if (res.checkout) regForm.querySelector('[name="checkout"]').value = res.checkout;
+    if (res.guests) regForm.querySelector('[name="guests"]').value = res.guests;
+  }
+  function matchSummary(res) {
+    var bits = [];
+    if (res.name) bits.push(res.name);
+    if (res.room) bits.push(res.room + ' room');
+    if (res.checkin && res.checkout) bits.push(prettyDate(res.checkin) + ' → ' + prettyDate(res.checkout));
+    if (res.guests) bits.push(res.guests + (String(res.guests) === '1' ? ' guest' : ' guests'));
+    return bits.join(' · ');
+  }
+  // Voluntary model (Nathan, Nov 24): a matched booking is the
+  // registration — the code (or phone) is the only requirement. The
+  // city fields the booking doesn't hold (address, phone, plate)
+  // start optional; if the guest ticks "I volunteer to assist with
+  // compliance," those fields become required — their word makes them
+  // binding. The full form (no booking to tie to) keeps everything
+  // required throughout.
+  function setFieldsRequired(on) {
+    ['address', 'phone', 'plate'].forEach(function (n) {
+      var el = regForm.querySelector('[name="' + n + '"]');
+      if (on) { el.setAttribute('required', ''); }
+      else { el.removeAttribute('required'); }
+    });
+    document.querySelectorAll('#reg .star').forEach(function (s) {
+      s.style.display = on ? '' : 'none';
+    });
+  }
+  function showFullForm() {
+    matchedMode = false;
+    document.getElementById('volNote').style.display = 'none';
+    setFieldsRequired(true);
+    document.getElementById('knownFields').style.display = 'block';
+    regForm.style.display = 'block';
+  }
+  function showShortForm() {
+    matchedMode = true;
+    document.getElementById('volNote').style.display = 'block';
+    setFieldsRequired(false);
+    document.getElementById('knownFields').style.display = 'none';
+    regForm.style.display = 'block';
+  }
+  document.getElementById('volBox').addEventListener('change', function () {
+    setFieldsRequired(this.checked);
+    if (this.checked) regForm.querySelector('[name="address"]').focus();
+  });
+
+  keyBtn.addEventListener('click', function () {
+    var raw = document.getElementById('keyInput').value.replace(/^\s+|\s+$/g, '');
+    if (!raw) { keyMsg.textContent = 'Enter your reservation code (or your phone number if you booked direct).'; return; }
+    keyBtn.disabled = true; keyBtn.textContent = 'Checking…';
+    keyMsg.textContent = '';
+    var digits = raw.replace(/\D/g, '');
+    var looksPhone = !/[A-Za-z]/.test(raw) && digits.length >= 7;
+    var first = looksPhone ? 'phone' : 'booking';
+    var second = looksPhone ? 'booking' : 'phone';
+    function attempt(via, next) {
+      var param = (via === 'booking')
+        ? 'fn=booking&code=' + encodeURIComponent(raw)
+        : 'fn=phone&phone=' + encodeURIComponent(raw);
+      jsonp(param, function (res) {
+        if (res && res.found) {
+          pendingMatch = { res: res, via: via, raw: raw };
+          keyBtn.disabled = false; keyBtn.textContent = 'Find my booking';
+          document.getElementById('foundText').textContent =
+            'We found your booking: ' + matchSummary(res) + '.';
+          document.getElementById('lookupEntry').style.display = 'none';
+          document.getElementById('foundCard').style.display = 'block';
+        } else if (next) {
+          attempt(next, null);
+        } else {
+          keyBtn.disabled = false; keyBtn.textContent = 'Find my booking';
+          keyMsg.textContent = 'We couldn\'t find that — no problem, just fill in the form below.';
+          showFullForm();
+          regForm.querySelector('[name="name"]').focus();
+        }
+      });
+    }
+    attempt(first, second);
+  });
+
+  document.getElementById('yesBtn').addEventListener('click', function () {
+    if (!pendingMatch) return;
+    applyMatch(pendingMatch.res, pendingMatch.via, pendingMatch.raw);
+    document.getElementById('foundCard').style.display = 'none';
+    document.getElementById('foundSummary').textContent =
+      'Booking found: ' + matchSummary(pendingMatch.res) + ' ✓ — just add the details below.';
+    document.getElementById('foundDone').style.display = 'block';
+    // If the match left any register field empty, show the full form
+    // instead — a hidden empty required field would block submit.
+    var complete = ['name', 'room', 'checkin', 'checkout'].every(function (n) {
+      return regForm.querySelector('[name="' + n + '"]').value !== '';
+    });
+    if (complete) { showShortForm(); } else { showFullForm(); }
+    regForm.querySelector('[name="address"]').focus();
+  });
+  document.getElementById('noBtn').addEventListener('click', function () {
+    pendingMatch = null;
+    document.getElementById('foundCard').style.display = 'none';
+    document.getElementById('lookupEntry').style.display = 'block';
+    keyMsg.textContent = 'No problem — fill in the form below instead.';
+    showFullForm();
+  });
+  document.getElementById('restartLink').addEventListener('click', function () {
+    location.reload();
+  });
+  document.getElementById('manualLink').addEventListener('click', function () {
+    document.getElementById('lookupEntry').style.display = 'none';
+    showFullForm();
+    regForm.querySelector('[name="name"]').focus();
+  });
+
+  var box = document.getElementById('aupbox');
+  var btn = document.getElementById('submit');
+  box.addEventListener('change', function () { btn.disabled = !box.checked; });
+
+  // License plate is a required register field, but guests who didn't
+  // drive need a way through: the No vehicle box fills in N/A (kept
+  // read-only rather than disabled so the value still submits).
+  var plateInput = regForm.querySelector('[name="plate"]');
+  var novehBox = document.getElementById('noveh');
+  novehBox.addEventListener('change', function () {
+    if (novehBox.checked) {
+      plateInput.value = 'N/A';
+      plateInput.readOnly = true;
+    } else {
+      plateInput.value = '';
+      plateInput.readOnly = false;
+      plateInput.focus();
+    }
+  });
+  regForm.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    showMsg('formMsg', '');
+    btn.disabled = true; btn.textContent = 'Registering…';
+    var f = new FormData(regForm);
+    var data = {
+      name: f.get('name'), address: f.get('address'), phone: f.get('phone'),
+      rescode: f.get('rescode'), room: f.get('room'),
+      checkin: f.get('checkin'), checkout: f.get('checkout'),
+      guests: f.get('guests'), plate: f.get('plate'), mac: MAC, ip: IP,
+      volunteered: matchedMode
+        ? (document.getElementById('volBox').checked ? 'Yes' : 'No') : ''
+    };
+    postRegister(data, 12000).then(function () {
+      try { sessionStorage.removeItem('sunstoneReg'); } catch (e) {}
+      btn.textContent = 'Connecting…';
+      doLogin();
+    }, function () {
+      btn.disabled = false; btn.textContent = 'Register & connect';
+      showMsg('formMsg', 'We couldn\'t save your registration just now — please tap Register & connect to try again. You won\'t be connected until it saves.');
+    });
+  });
+
+  document.getElementById('devtoggle').addEventListener('click', function () {
+    var d = document.getElementById('devadd');
+    d.style.display = (d.style.display === 'block') ? 'none' : 'block';
+  });
+  document.getElementById('devadd').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    showMsg('devMsg', '');
+    var dbtn = document.getElementById('devbtn');
+    var key = new FormData(this).get('key');
+    dbtn.disabled = true; dbtn.textContent = 'Checking…';
+    jsonp('fn=devlookup&key=' + encodeURIComponent(key), function (res) {
+      if (!res || !res.found) {
+        dbtn.disabled = false; dbtn.textContent = 'Connect this device';
+        showMsg('devMsg', 'We couldn\'t find that registration — please complete the full registration above.');
+        return;
+      }
+      postRegister({ mode: 'device', key: key, mac: MAC, ip: IP }, 12000).then(function () {
+        dbtn.textContent = 'Connecting…';
+        doLogin();
+      }, function () {
+        dbtn.disabled = false; dbtn.textContent = 'Connect this device';
+        showMsg('devMsg', 'That didn\'t save just now — please tap Connect this device to try again.');
+      });
+    });
+  });
+</script>
+</body>
+</html>
