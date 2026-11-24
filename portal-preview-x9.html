@@ -62,9 +62,8 @@
       <label>Airbnb reservation code</label>
       <input id="keyInput" autocomplete="off" placeholder="e.g. HMC4ERPST9">
       <label class="agree"><input type="checkbox" id="volUpfront">
-        I volunteer to assist with compliance — take me to one more
-        page to add my home address, phone, and license plate for the
-        City register.</label>
+        I volunteer to assist with compliance — I'll add my home
+        address, phone, and license plate for the City register.</label>
       <div class="fine">Leave it unticked and we'll register you with
         your reservation code alone — no more pages.</div>
       <button type="button" id="keyBtn">Find my booking</button>
@@ -75,7 +74,7 @@
     </div>
     <div id="foundCard">
       <p class="found" id="foundText"></p>
-      <button type="button" id="yesBtn">That's me</button>
+      <button type="button" id="yesBtn">Register & connect</button>
       <button type="button" id="noBtn" class="ghost">Not me</button>
       <p class="fine">By connecting you agree to the house internet
         terms: no torrenting or illegal downloads, no spam, hacking, or
@@ -360,13 +359,32 @@
         if (res && res.found) {
           pendingMatch = { res: res, via: via, raw: raw };
           keyBtn.disabled = false; keyBtn.textContent = 'Find my booking';
-          document.getElementById('foundText').textContent =
-            'We found your booking: ' + matchSummary(res) + '.';
           document.getElementById('lookupEntry').style.display = 'none';
-          document.getElementById('yesBtn').textContent =
-            (via === 'booking' && document.getElementById('volUpfront').checked)
-              ? "That's me — continue" : "That's me — register & connect";
-          document.getElementById('foundCard').style.display = 'block';
+          if (via === 'booking' && document.getElementById('volUpfront').checked) {
+            // Two hops across the board (Nathan, Nov 24): a volunteer
+            // goes straight from the match to data entry — no confirm
+            // card in between. The booking summary heads the form,
+            // "Wrong booking? Start over" is the escape, and the
+            // form's Register & connect is the confirmation.
+            applyMatch(res, via, raw);
+            document.getElementById('foundSummary').textContent =
+              'Booking found: ' + matchSummary(res) + ' ✓ — just add the details below.';
+            document.getElementById('foundDone').style.display = 'block';
+            var bkComplete = ['name', 'room', 'checkin', 'checkout'].every(function (n) {
+              return regForm.querySelector('[name="' + n + '"]').value !== '';
+            });
+            if (bkComplete) {
+              showShortForm();
+              document.getElementById('volBox').checked = true;
+              setFieldsRequired(true);
+            } else { showFullForm(); }
+            regForm.querySelector('[name="address"]').focus();
+          } else {
+            document.getElementById('foundText').textContent =
+              'We found your booking: ' + matchSummary(res) + '.';
+            document.getElementById('yesBtn').textContent = 'Register & connect';
+            document.getElementById('foundCard').style.display = 'block';
+          }
         } else if (next) {
           attempt(next, null);
         } else {
@@ -380,13 +398,6 @@
     attempt(first, second);
   });
 
-  document.getElementById('volUpfront').addEventListener('change', function () {
-    if (pendingMatch && pendingMatch.via === 'booking') {
-      document.getElementById('yesBtn').textContent = this.checked
-        ? "That's me — continue" : "That's me — register & connect";
-    }
-  });
-
   document.getElementById('yesBtn').addEventListener('click', function () {
     if (!pendingMatch) return;
     applyMatch(pendingMatch.res, pendingMatch.via, pendingMatch.raw);
@@ -396,27 +407,18 @@
     var complete = ['name', 'room', 'checkin', 'checkout'].every(function (n) {
       return regForm.querySelector('[name="' + n + '"]').value !== '';
     });
-    var vol = document.getElementById('volUpfront').checked;
-    // Nathan's flow (Nov 24): the volunteer box sits below the
-    // reservation code. Ticked → the details page (fields required —
-    // their word makes them binding). Unticked → register them with
-    // the code alone, no details page. A DIRECT guest (phone match)
-    // always registers straight through, ticked or not — Sunstone
-    // already holds their details from the application process, so
-    // there is nothing to ask them.
+    // The confirm card is only shown to non-volunteers and direct
+    // guests now (volunteers go straight to data entry), so this tap
+    // IS the registration: a direct guest records blank (never
+    // asked — Sunstone holds their details from the application
+    // process), a code guest records No.
     if (complete && pendingMatch.via === 'phone') { registerWithCode(''); return; }
-    if (complete && !vol) { registerWithCode('No'); return; }
+    if (complete) { registerWithCode('No'); return; }
     document.getElementById('foundCard').style.display = 'none';
     document.getElementById('foundSummary').textContent =
       'Booking found: ' + matchSummary(pendingMatch.res) + ' ✓ — just add the details below.';
     document.getElementById('foundDone').style.display = 'block';
-    if (complete) {
-      showShortForm();
-      if (vol) {
-        document.getElementById('volBox').checked = true;
-        setFieldsRequired(true);
-      }
-    } else { showFullForm(); }
+    showFullForm();
     regForm.querySelector('[name="address"]').focus();
   });
 
@@ -445,7 +447,7 @@
       doLogin();
     }, function () {
       yesBtn.disabled = false; noBtn.disabled = false;
-      yesBtn.textContent = "That's me — register & connect";
+      yesBtn.textContent = 'Register & connect';
       document.getElementById('foundCard').style.display = 'none';
       document.getElementById('foundSummary').textContent =
         'Booking found: ' + matchSummary(pendingMatch.res) + ' ✓ — just add the details below.';
